@@ -5,45 +5,19 @@ import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:dat216_projekt/pages/account_view.dart';
 import 'package:dat216_projekt/pages/history_view.dart';
 import 'package:dat216_projekt/widgets/cart_view.dart';
+import 'package:dat216_projekt/widgets/header.dart';
 import 'package:dat216_projekt/widgets/product_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
 
-class MainView extends StatelessWidget {
-  const MainView({super.key});
+class BaseView extends StatelessWidget {
+  final StatefulNavigationShell navigationShell;
+
+  const BaseView({required this.navigationShell, super.key});
 
   @override
   Widget build(BuildContext context) {
-    var iMat = context.watch<ImatDataHandler>();
-    var products = iMat.selectProducts;
-
-    return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(height: AppTheme.paddingLarge),
-          _header(context),
-          SizedBox(height: AppTheme.paddingMedium),
-          Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _leftPanel(iMat),
-                SizedBox(
-                  width: 580,
-                  //height: 400,
-                  child: _centerStage(context, products),
-                ),
-                SizedBox(
-                  width: 300,
-                  //color: Colors.blueGrey,
-                  child: _shoppingCart(iMat),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
+    return Scaffold(appBar: Header(), body: navigationShell);
   }
 
   Widget _shoppingCart(ImatDataHandler iMat) {

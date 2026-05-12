@@ -1,34 +1,34 @@
+import 'dart:convert';
+
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat/credit_card.dart';
 import 'package:dat216_projekt/model/imat/customer.dart';
 import 'package:dat216_projekt/model/imat/util/functions.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:dat216_projekt/model/internet_handler.dart';
-import 'package:dat216_projekt/pages/main_view.dart';
+import 'package:dat216_projekt/routes.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert';
-
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => ImatDataHandler(),
-      child: const MyApp(),
+      child: const App(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'iMat Demo',
+    return MaterialApp.router(
+      title: 'iMat',
+      routerConfig: appRouter,
       theme: ThemeData(colorScheme: AppTheme.colorScheme),
-      home: const MainView(),
     );
   }
 }

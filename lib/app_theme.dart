@@ -10,13 +10,12 @@ class AppTheme {
   static const paddingMediumSmall = 12.0;
   static const paddingMedium = 16.0;
   static const paddingLarge = 24.0;
-
   static const paddingHuge = 32.0;
 
   static ColorScheme colorScheme = ColorScheme.fromSeed(
     seedColor: Color.fromARGB(255, 108, 173, 130),
 
-    // Override primary
+    // Overrides
     primary: Color.fromARGB(255, 108, 173, 130),
   );
 }
