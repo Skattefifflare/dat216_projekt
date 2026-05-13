@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // Widget sizes
+  // Widgets
+  // Header
   static const headerHeight = 120.0;
+  static const headerPadding = paddingMedium;
+  static const headerButton =
+      (headerHeight - headerPadding * 2 - paddingLarge * 2) * 1.4;
+
+  // Font sized
+  static const fontLarge = 24.0;
+  static const fontHuge = 32.0;
 
   // Padding
   static const paddingTiny = 4.0;
