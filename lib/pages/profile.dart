@@ -9,12 +9,13 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 55),
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: Colors.green, width: 1.5),
+              border: Border.all(color: const Color.fromARGB(255, 110, 173, 113), width: 1.5),
             ),
             child: CircleAvatar(
               radius: 75,
@@ -30,8 +31,43 @@ class Profile extends StatelessWidget {
   }
 
   Widget _buildFormCard() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
-      );
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment:
+            CrossAxisAlignment.start, 
+        children: [
+          Text('Namn'),
+          Row(
+            children: [
+                SizedBox(width: 250,  
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Hjördis efternamnsson',
+                    fillColor: Colors.white,
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide(color: Colors.grey, width: 1),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: Text('Ändra', style: TextStyle(color: Colors.white)),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
