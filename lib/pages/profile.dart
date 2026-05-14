@@ -42,6 +42,7 @@ class Profile extends StatelessWidget {
             children: [
                 SizedBox(width: 250,  
                 child: TextField(
+                  textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     hintText: 'Hjördis efternamnsson',
                     fillColor: Colors.white,
