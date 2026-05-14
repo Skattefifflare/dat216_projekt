@@ -1,4 +1,4 @@
-import 'package:dat216_projekt/widgets/home_widgets/category_card.dart';
+import 'package:dat216_projekt/widgets/profile_widgets/details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 
@@ -24,12 +24,12 @@ class Profile extends StatelessWidget {
           ),
           SizedBox(height: 12),
           Text('Hjördis', style: TextStyle(fontSize: 40)),
-          _buildForm(),
+          Details(),
         ],
       ),
     );
   }
-
+  /*
   Widget _buildForm() {
   return Container(
     height: 500,
@@ -95,4 +95,5 @@ class Profile extends StatelessWidget {
           );
      
   }
+  */
 }
