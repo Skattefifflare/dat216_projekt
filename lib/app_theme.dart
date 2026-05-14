@@ -25,5 +25,6 @@ class AppTheme {
 
     // Overrides
     primary: Color.fromARGB(255, 108, 173, 130),
+    
   );
 }
