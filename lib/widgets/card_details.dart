@@ -49,7 +49,7 @@ class _CardDetailsState extends State<CardDetails> {
         ),
         TextField(
           controller: _monthController,
-          decoration: InputDecoration(labelText: 'Giltigt månad (1-12)'),
+          decoration: InputDecoration(labelText: 'Giltig månad (1-12)'),
         ),
         TextField(
           controller: _yearController,
