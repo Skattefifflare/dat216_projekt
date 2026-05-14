@@ -1,10 +1,48 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class HomeSearch extends StatefulWidget {
+  const HomeSearch({super.key});
+
+  @override
+  State<HomeSearch> createState() => _HomeSearchState();
+}
+
+class _HomeSearchState extends State<HomeSearch> {
+  final TextEditingController _controller = TextEditingController();
+  String query = "";
+
+  @override
+  void dispose(){
+    _controller.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SizedBox(
+      width: 800,
+      child: TextField(
+        controller: _controller,     
+        decoration: InputDecoration(
+          hintText: "Sök efter produkter här",
+          prefixIcon: const Icon(Icons.search),
+          suffixIcon: IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () {
+              _controller.clear();
+              setState(() => query = '');
+            },
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide.none,
+          ),
+          filled: true,
+          fillColor: Colors.grey[200],
+        ),
+        onChanged: (value) => setState(() => query = value),
+      ),
+    );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:dat216_projekt/widgets/home_widgets/category_card.dart';
 import 'package:dat216_projekt/widgets/home_widgets/category_grid.dart';
+import 'package:dat216_projekt/widgets/home_widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -23,9 +24,9 @@ class Home extends StatelessWidget {
             fontWeight: FontWeight.normal
           ),
         ),
-
-
-        
+        SizedBox(height: 50),
+        HomeSearch(),
+        SizedBox(height: 100),
         CategoryGrid()
       ],
     );
