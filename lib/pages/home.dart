@@ -8,7 +8,24 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Placeholder(),
+        const Text(
+          "Välkommen till iMat!",
+          style: TextStyle(
+            fontSize: 82, 
+            fontWeight: FontWeight.bold
+          ),
+        ),
+        const Text( 
+          "Utforska vårt breda sortiment och hitta dina favoriter",
+          style: TextStyle(
+            fontSize: 32, 
+            color: Color.fromARGB(255, 41, 41, 41),
+            fontWeight: FontWeight.normal
+          ),
+        ),
+
+
+        
         CategoryGrid()
       ],
     );

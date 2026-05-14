@@ -1,13 +1,11 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widget_previews.dart';
 
 class CategoryCard extends StatelessWidget {
   final ImageProvider image;
   final String title;
   final String description;
 
-  @Preview(name: 'My Sample Text')
   const CategoryCard({super.key, required this.image, required this.title, required this.description});
 
   @override

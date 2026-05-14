@@ -11,6 +11,7 @@ class AppTheme {
   // Font sized
   static const fontLarge = 24.0;
   static const fontHuge = 32.0;
+  static const fontMedium = 18.0;
 
   // Padding
   static const paddingTiny = 4.0;
@@ -27,4 +28,5 @@ class AppTheme {
     primary: Color.fromARGB(255, 108, 173, 130),
     
   );
+  
 }
