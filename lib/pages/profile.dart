@@ -10,17 +10,28 @@ class Profile extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          CircleAvatar(
-            radius: 100,
-            backgroundImage: AssetImage('assets/images/holgerson.png'),
+          SizedBox(height: 55),
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.green, width: 1.5),
+            ),
+            child: CircleAvatar(
+              radius: 75,
+              backgroundImage: AssetImage('assets/images/holgerson.png'),
+            ),
           ),
-           SizedBox(height: 12),
-          // Name text below like in your design
-           Text(
-            'Hjördis'
-              ),
-            ],
-          ),
-        );
+          SizedBox(height: 12),
+          Text('Hjördis', style: TextStyle(fontSize: 40)),
+          _buildFormCard(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFormCard() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
+      );
   }
 }
