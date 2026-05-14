@@ -1,5 +1,6 @@
-import 'package:dat216_projekt/app_theme.dart';
+import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeSearch extends StatefulWidget {
   const HomeSearch({super.key});
@@ -18,6 +19,7 @@ class _HomeSearchState extends State<HomeSearch> {
     super.dispose();
   }
 
+  
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -48,4 +50,5 @@ class _HomeSearchState extends State<HomeSearch> {
       ),
     );
   }
+  
 }
