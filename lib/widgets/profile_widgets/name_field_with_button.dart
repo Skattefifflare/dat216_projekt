@@ -12,41 +12,51 @@ class NameFieldWithButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(label),
-        Row(
-          children: [
-            SizedBox(
-              width: 250,
-              height: 250,
-              child: TextField(
-                textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                  hintText: hintTxt,
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.grey, width: 1),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            textAlign: TextAlign.left,
+            style: const TextStyle(fontSize: 14),
+          ),
+          const SizedBox(height: 6),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 250,
+                height: 32,
+                child: TextField(
+                  textAlign: TextAlign.left,
+                  decoration: InputDecoration(
+                    hintText: hintTxt,
+                    fillColor: Colors.white,
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Colors.grey, width: 1),
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(width: 16),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+              const SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
+                child: const Text('Ändra', style: TextStyle(color: Colors.white)),
               ),
-              child: Text('Ändra', style: TextStyle(color: Colors.white)),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
