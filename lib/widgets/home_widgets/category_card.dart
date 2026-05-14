@@ -15,8 +15,8 @@ class CategoryCard extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox(
-            width: 340,
-            height: 240,
+            width: 320,
+            height: 200,
             child: Image(image: image, fit: BoxFit.cover),
           ),
           Positioned.fill(
