@@ -5,15 +5,23 @@ class Browse extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Placeholder(),
-            Placeholder(),
-            Placeholder(),
-            Placeholder(),
-          ],
-        ),
+      child: Row(
+        children: [
+          SizedBox(width: 320), //TODO add filters
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Placeholder(),
+                  Placeholder(),
+                  Placeholder(),
+                  Placeholder(),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(width: 320),
+        ],
       ),
     );
   }
