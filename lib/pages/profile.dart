@@ -1,4 +1,5 @@
 import 'package:dat216_projekt/widgets/profile_widgets/details.dart';
+import 'package:dat216_projekt/widgets/profile_widgets/pfp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 
@@ -7,27 +8,8 @@ class Profile extends StatelessWidget {
   const Profile({super.key});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(height: 55),
-          Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: const Color.fromARGB(255, 110, 173, 113), width: 3.5),
-            ),
-            child: CircleAvatar(
-              radius: 75,
-              backgroundImage: AssetImage('assets/images/holgerson.png'),
-            ),
-          ),
-          SizedBox(height: 12),
-          Text('Hjördis', style: TextStyle(fontSize: 40)),
-          Details(),
-        ],
-      ),
-    );
+    return Pfp();
+  
   }
   /*
   Widget _buildForm() {
