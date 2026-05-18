@@ -1,3 +1,4 @@
+import 'package:dat216_projekt/app_assets.dart';
 import 'package:dat216_projekt/widgets/profile/details.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class Pfp extends StatelessWidget {
             ),
             child: CircleAvatar(
               radius: 75,
-              backgroundImage: AssetImage('assets/images/holgerson.png'),
+              backgroundImage: AssetImage(AppAssets.profile),
             ),
           ),
           SizedBox(height: 12),

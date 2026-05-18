@@ -2,6 +2,7 @@ import 'dart:collection';
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:dat216_projekt/app_assets.dart';
 import 'package:dat216_projekt/model/imat/credit_card.dart';
 import 'package:dat216_projekt/model/imat/customer.dart';
 import 'package:dat216_projekt/model/imat/order.dart';
@@ -229,7 +230,7 @@ class ImatDataHandler extends ChangeNotifier {
 
     bool imageFound = image != null;
 
-    return imageFound ? image : Image.asset('assets/images/placeholder.png');
+    return imageFound ? image : Image.asset(AppAssets.placeholder);
   }
 
   // Can be used to create desired images using
