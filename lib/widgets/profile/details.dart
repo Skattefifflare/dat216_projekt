@@ -1,4 +1,4 @@
-import 'package:dat216_projekt/widgets/profile_widgets/name_field_with_button.dart';
+import 'package:dat216_projekt/widgets/profile/name_field_with_button.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatelessWidget {

@@ -1,5 +1,4 @@
-import 'package:dat216_projekt/widgets/profile_widgets/details.dart';
-import 'package:dat216_projekt/widgets/profile_widgets/pfp.dart';
+import 'package:dat216_projekt/widgets/profile/pfp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 

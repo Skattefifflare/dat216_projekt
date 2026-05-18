@@ -1,4 +1,4 @@
-import 'package:dat216_projekt/widgets/profile_widgets/details.dart';
+import 'package:dat216_projekt/widgets/profile/details.dart';
 import 'package:flutter/material.dart';
 
 class Pfp extends StatelessWidget {
