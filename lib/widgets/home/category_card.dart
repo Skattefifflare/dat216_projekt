@@ -1,12 +1,11 @@
 import 'package:dat216_projekt/app_theme.dart';
+import 'package:dat216_projekt/model/imat/product.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
-  final ImageProvider image;
-  final String title;
-  final String description;
+  final GeneralProductCategory category;
 
-  const CategoryCard({super.key, required this.image, required this.title, required this.description});
+  const CategoryCard({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,10 @@ class CategoryCard extends StatelessWidget {
           SizedBox(
             width: 320,
             height: 200,
-            child: Image(image: image, fit: BoxFit.cover),
+            child: Image(
+              image: AssetImage('assets/images/${category.image}'),
+              fit: BoxFit.cover,
+            ),
           ),
           Positioned.fill(
             child: DecoratedBox(
@@ -41,19 +43,14 @@ class CategoryCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  category.title,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: AppTheme.fontHuge,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
-                  description,
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
+                Text(category.description, style: TextStyle(color: Colors.white)),
               ],
             ),
           ),
