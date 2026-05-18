@@ -10,11 +10,16 @@ class CategoryGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     var categories = GeneralProductCategory.values;
 
-    return Wrap(
-      alignment: .center,
-      children: [
-        for (final category in categories) CategoryCard(category: category),
-      ],
+    return SizedBox(
+      width: AppTheme.contentMaxWidth,
+      child: Wrap(
+        alignment: .center,
+        spacing: 0,
+        runSpacing: 0,
+        children: [
+          for (final category in categories) CategoryCard(category: category),
+        ],
+      ),
     );
   }
 }

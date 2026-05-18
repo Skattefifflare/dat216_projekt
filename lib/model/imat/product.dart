@@ -58,7 +58,7 @@ enum GeneralProductCategory {
   ),
   DAIRIES(
     title: 'Mejeri',
-    description: 'Krämiga klassiker för matlagning och bak',
+    description: 'Krämigt för matlagning och bak',
     image: 'dairy.jpg',
     subCategories: [ProductCategory.DAIRIES],
   ),

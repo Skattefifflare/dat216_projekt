@@ -21,12 +21,17 @@ class AppTheme {
   static const paddingLarge = 24.0;
   static const paddingHuge = 32.0;
 
+  static const categoryCardMargin = 4.0;
+  static const categoryCardWidth = contentMaxWidth / 3 - categoryCardMargin * 2;
+  static const categoryCardHeight = 200.0;
+
+  // Other
+  static const contentMaxWidth = 960.0;
+
   static ColorScheme colorScheme = ColorScheme.fromSeed(
     seedColor: Color.fromARGB(255, 108, 173, 130),
 
     // Overrides
     primary: Color.fromARGB(255, 108, 173, 130),
-    
   );
-  
 }
