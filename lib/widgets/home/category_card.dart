@@ -9,13 +9,16 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
+
     return Card(
+      margin: .all(AppTheme.categoryCardMargin),
       clipBehavior: Clip.antiAlias,
       child: Stack(
         children: [
           SizedBox(
-            width: 320,
-            height: 200,
+            width: AppTheme.categoryCardWidth,
+            height: AppTheme.categoryCardHeight,
             child: Image(
               image: AssetImage('assets/images/${category.image}'),
               fit: BoxFit.cover,
@@ -28,7 +31,7 @@ class CategoryCard extends StatelessWidget {
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                   colors: [
-                    Colors.black.withValues(alpha: 130),
+                    Colors.black.withValues(alpha: 100),
                     Colors.transparent,
                   ],
                   stops: const [0.0, 0.7],
@@ -37,31 +40,34 @@ class CategoryCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 50,
-            left: 18,
+            bottom: AppTheme.categoryCardPadding,
+            left: AppTheme.categoryCardPadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   category.title,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: theme.onPrimary,
                     fontSize: AppTheme.fontHuge,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(category.description, style: TextStyle(color: Colors.white)),
+                Text(
+                  category.description,
+                  style: TextStyle(color: theme.onPrimary),
+                ),
               ],
             ),
           ),
 
           Positioned(
-            bottom: 10,
-            right: 10,
+            bottom: AppTheme.categoryCardPadding,
+            right: AppTheme.categoryCardPadding,
             child: IconButton(
               onPressed: () {},
               icon: const Icon(Icons.arrow_forward_ios),
-              color: Colors.white,
+              color: theme.onPrimary,
               style: IconButton.styleFrom(
                 backgroundColor: AppTheme.colorScheme.primary,
                 shape: const CircleBorder(),

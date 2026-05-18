@@ -1,3 +1,4 @@
+import 'package:dat216_projekt/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class NameFieldWithButton extends StatelessWidget {
@@ -12,17 +13,19 @@ class NameFieldWithButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: AppTheme.paddingSmall),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             label,
             textAlign: TextAlign.left,
-            style: const TextStyle(fontSize: 14),
+            style: const TextStyle(fontSize: AppTheme.fontMedium),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: AppTheme.paddingSmall),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -33,25 +36,30 @@ class NameFieldWithButton extends StatelessWidget {
                   textAlign: TextAlign.left,
                   decoration: InputDecoration(
                     hintText: hintTxt,
-                    fillColor: Colors.white,
+                    fillColor: theme.surface,
                     filled: true,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Colors.grey, width: 1),
+                      borderRadius: BorderRadius.circular(
+                        AppTheme.radiusMedium,
+                      ),
+                      borderSide: BorderSide(
+                        color: theme.secondary,
+                        width: AppTheme.strokeTiny,
+                      ),
                     ),
                   ),
                 ),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: AppTheme.paddingMedium),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+                  backgroundColor: theme.tertiary,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
                   ),
                 ),
-                child: const Text('Ändra', style: TextStyle(color: Colors.white)),
+                child: Text('Ändra', style: TextStyle(color: theme.surface)),
               ),
             ],
           ),

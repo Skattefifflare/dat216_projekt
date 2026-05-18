@@ -8,10 +8,25 @@ class AppTheme {
   static const headerButton =
       (headerHeight - headerPadding * 2 - paddingLarge * 2) * 1.4;
 
-  // Font sized
+  // Footer
+  static const footerHeight = 24.0;
+
+  // Category Card
+  static const categoryCardMargin = 4.0;
+  static const categoryCardWidth = contentMaxWidth / 3 - categoryCardMargin * 2;
+  static const categoryCardHeight = 200.0;
+  static const categoryCardPadding = 16.0;
+
+  // Profile picture
+  static const profilePictureSize = 76.0;
+
+  // Sizes
+  // Font
+  static const fontMedium = 16.0;
   static const fontLarge = 24.0;
   static const fontHuge = 32.0;
-  static const fontMedium = 18.0;
+  static const fontGiant = 48.0;
+  static const fontTitle = 96.0;
 
   // Padding
   static const paddingTiny = 4.0;
@@ -20,10 +35,19 @@ class AppTheme {
   static const paddingMedium = 16.0;
   static const paddingLarge = 24.0;
   static const paddingHuge = 32.0;
+  static const paddingGiant = 48.0;
 
-  static const categoryCardMargin = 4.0;
-  static const categoryCardWidth = contentMaxWidth / 3 - categoryCardMargin * 2;
-  static const categoryCardHeight = 200.0;
+  // Stroke
+  static const strokeTiny = 1.0;
+  static const strokeSmall = 2.0;
+  static const strokeMedium = 4.0;
+  static const strokeLarge = 8.0;
+
+  // Border radius
+  static const radiusTiny = 2.0;
+  static const radiusSmall = 4.0;
+  static const radiusMedium = 8.0;
+  static const radiusLarge = 16.0;
 
   // Other
   static const contentMaxWidth = 960.0;

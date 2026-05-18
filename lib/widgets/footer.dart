@@ -1,3 +1,4 @@
+import 'package:dat216_projekt/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {
@@ -6,9 +7,9 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-      height: 60,
+      height: AppTheme.footerHeight,
       child: Center(
-        child: Text('© 2024 iMat. All rights reserved.'),
+        child: Text('© 2026 iMat. All rights reserved.'),
       ),
     );
   }

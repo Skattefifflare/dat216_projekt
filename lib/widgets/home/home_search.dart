@@ -1,6 +1,5 @@
-import 'package:dat216_projekt/model/imat_data_handler.dart';
+import 'package:dat216_projekt/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomeSearch extends StatefulWidget {
   const HomeSearch({super.key});
@@ -19,11 +18,12 @@ class _HomeSearchState extends State<HomeSearch> {
     super.dispose();
   }
 
-  
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
+
     return SizedBox(
-      width: 800,
+      width: AppTheme.contentMaxWidth,
       child: TextField(
         controller: _controller,
         decoration: InputDecoration(
@@ -37,18 +37,17 @@ class _HomeSearchState extends State<HomeSearch> {
             },
           ),
           contentPadding: const EdgeInsets.symmetric(
-            vertical: 20,
+            vertical: AppTheme.paddingMedium,
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
             borderSide: BorderSide.none,
           ),
           filled: true,
-          fillColor: Colors.grey[200],
+          fillColor: theme.surfaceContainerHighest,
         ),
         onChanged: (value) => setState(() => query = value),
       ),
     );
   }
-  
 }

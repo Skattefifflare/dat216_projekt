@@ -1,3 +1,4 @@
+import 'package:dat216_projekt/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class HomeText extends StatelessWidget {
@@ -5,21 +6,23 @@ class HomeText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    final theme = Theme.of(context).colorScheme;
+
+    return Column(
       children: [
         Text(
           "Välkommen till iMat!",
           style: TextStyle(
-            fontSize: 82, 
-            fontWeight: FontWeight.bold
+            fontSize: AppTheme.fontTitle,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        Text( 
+        Text(
           "Utforska vårt breda sortiment och hitta dina favoriter",
           style: TextStyle(
-            fontSize: 32, 
-            color: Color.fromARGB(255, 41, 41, 41),
-            fontWeight: FontWeight.normal
+            fontSize: AppTheme.fontHuge,
+            color: theme.onSurface,
+            fontWeight: FontWeight.normal,
           ),
         ),
       ],

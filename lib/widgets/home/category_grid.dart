@@ -14,8 +14,6 @@ class CategoryGrid extends StatelessWidget {
       width: AppTheme.contentMaxWidth,
       child: Wrap(
         alignment: .center,
-        spacing: 0,
-        runSpacing: 0,
         children: [
           for (final category in categories) CategoryCard(category: category),
         ],

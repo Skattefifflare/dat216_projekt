@@ -1,3 +1,4 @@
+import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/widgets/profile/name_field_with_button.dart';
 import 'package:flutter/material.dart';
 
@@ -6,72 +7,84 @@ class Details extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
+
     return Card(
-      color: const Color(0xFFF2F2F2),
+      color: theme.surfaceContainerHighest,
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(
-          color: const Color(0xFF6EAD71),
-          width: 2,
-        ),
+        borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
+        side: BorderSide(color: theme.primary, width: 2),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: IntrinsicWidth(
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        padding: const EdgeInsets.all(AppTheme.paddingMedium),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NameFieldWithButton(label: "Namn", hintTxt: "Hjördis Efternamnsson"),
-                const SizedBox(height: 8),
-                const Divider()
-                
+                NameFieldWithButton(
+                  label: "Namn",
+                  hintTxt: "Hjördis Efternamnsson",
+                ),
+                const SizedBox(height: AppTheme.paddingSmall),
+                const Divider(),
               ],
             ),
-            const SizedBox(width: 24),
-            Container(width: 1.5, color: Colors.green, margin: const EdgeInsets.symmetric(horizontal: 16), height: 350),
+            const SizedBox(width: AppTheme.paddingLarge),
+            Container(
+              width: AppTheme.strokeSmall,
+              color: theme.secondary,
+              margin: const EdgeInsets.symmetric(
+                horizontal: AppTheme.paddingMedium,
+              ),
+              height: 350,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NameFieldWithButton(label: "Kortnummer", hintTxt: "9999 9999 9999 9999"),
-                const SizedBox(height: 8),
-                const SizedBox(
+                NameFieldWithButton(
+                  label: "Kortnummer",
+                  hintTxt: "9999 9999 9999 9999",
+                ),
+                const SizedBox(height: AppTheme.paddingSmall),
+                SizedBox(
                   width: 250,
                   child: Divider(
-                    thickness: 1,
-                    color: Colors.grey,
+                    thickness: AppTheme.strokeTiny,
+                    color: theme.secondary,
                   ),
                 ),
                 NameFieldWithButton(label: "Utgångsdatum", hintTxt: "12/34"),
-                const SizedBox(height: 8),
-                const SizedBox(
+                const SizedBox(height: AppTheme.paddingSmall),
+                SizedBox(
                   width: 250,
                   child: Divider(
-                    thickness: 1,
-                    color: Colors.grey,
+                    thickness: AppTheme.strokeTiny,
+                    color: theme.secondary,
                   ),
                 ),
                 NameFieldWithButton(label: "CVC", hintTxt: "420"),
-                const SizedBox(height: 8),
-                const SizedBox(
+                const SizedBox(height: AppTheme.paddingSmall),
+                SizedBox(
                   width: 250,
                   child: Divider(
-                    thickness: 1,
-                    color: Colors.grey,
+                    thickness: AppTheme.strokeTiny,
+                    color: theme.secondary,
                   ),
                 ),
-                NameFieldWithButton(label: "Telefonnummer", hintTxt: "+46 999 999 99 99"),
+                NameFieldWithButton(
+                  label: "Telefonnummer",
+                  hintTxt: "+46 999 999 99 99",
+                ),
               ],
             ),
           ],
         ),
       ),
-    ),
     );
   }
 }

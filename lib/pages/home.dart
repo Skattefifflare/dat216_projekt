@@ -1,3 +1,4 @@
+import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/widgets/home/category_grid.dart';
 import 'package:dat216_projekt/widgets/home/home_text.dart';
 import 'package:dat216_projekt/widgets/home/home_search.dart';
@@ -8,13 +9,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: .center,
       children: [
-        SizedBox(height: 42),
         HomeText(),
-        SizedBox(height: 42),
+        SizedBox(height: AppTheme.paddingHuge),
         HomeSearch(),
-        SizedBox(height: 80),
-        CategoryGrid()
+        SizedBox(height: AppTheme.paddingHuge),
+        CategoryGrid(),
       ],
     );
   }
