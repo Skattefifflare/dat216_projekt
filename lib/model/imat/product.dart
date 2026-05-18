@@ -25,6 +25,68 @@ enum ProductCategory {
   UNDEFINED,
 }
 
+enum GeneralProductCategory {
+  MEAT(
+    title: 'Kött',
+    description: 'Saftigt och proteinrikt',
+    image: 'meat.jpg',
+    subCategories: [ProductCategory.MEAT, ProductCategory.FISH],
+  ),
+  VEGETABLE(
+    title: 'Grönsaker',
+    description: 'Krispigt och fyllt av vitaminer',
+    image: 'vegetables.jpg',
+    subCategories: [
+      ProductCategory.CABBAGE,
+      ProductCategory.ROOT_VEGETABLE,
+      ProductCategory.VEGETABLE_FRUIT,
+      ProductCategory.HERB,
+      ProductCategory.POD,
+    ],
+  ),
+  FRUIT(
+    title: 'Frukt',
+    description: 'Söta och fräscha',
+    image: 'fruits.jpg',
+    subCategories: [
+      ProductCategory.FRUIT,
+      ProductCategory.BERRY,
+      ProductCategory.CITRUS_FRUIT,
+      ProductCategory.EXOTIC_FRUIT,
+      ProductCategory.MELONS,
+    ],
+  ),
+  DAIRIES(
+    title: 'Mejeri',
+    description: 'Krämiga klassiker för matlagning och bak',
+    image: 'dairy.jpg',
+    subCategories: [ProductCategory.DAIRIES],
+  ),
+  CARBOHYDRATES(
+    title: 'Kolhydrater',
+    description: 'Energi för långa dagar',
+    image: 'pasta.jpg',
+    subCategories: [
+      ProductCategory.BREAD,
+      ProductCategory.PASTA,
+      ProductCategory.POTATO_RICE,
+      ProductCategory.FLOUR_SUGAR_SALT,
+    ],
+  );
+
+  const GeneralProductCategory({
+    required this.title,
+    required this.description,
+    required this.image,
+    required this.subCategories,
+  });
+
+  final String title;
+  final String description;
+  final String image;
+  final List<ProductCategory> subCategories;
+}
+
 class Product {
   int productId;
   ProductCategory category;
