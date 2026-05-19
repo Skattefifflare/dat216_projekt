@@ -1,6 +1,6 @@
 class AppAssets {
   static const imageNotFound = 'assets/images/Image-not-found.png';
-  static const placeholder = 'assets/images/placholder.png';
+  static const placeholder = 'assets/images/placeholder.png';
 
   static const profile = 'assets/images/holgerson.png';
 

@@ -14,8 +14,6 @@ class ProductGrid extends StatefulWidget {
 class _ProductGridState extends State<ProductGrid> {
   @override
   Widget build(BuildContext context) {
-    final imat = context.watch<ImatDataHandler>();
-
     return Center(
       child: SizedBox(
         width: 1200,
@@ -26,9 +24,9 @@ class _ProductGridState extends State<ProductGrid> {
             crossAxisSpacing: AppTheme.paddingHuge,
             mainAxisSpacing: AppTheme.paddingHuge,
           ),
-          itemCount: imat.products.length,
+          itemCount: context.watch<ImatDataHandler>().products.length,
           itemBuilder: (context, index) =>
-              ProductCard(),
+              ProductCard(product: context.read<ImatDataHandler>().selectProducts[index],),
         ),
       ),
     );
