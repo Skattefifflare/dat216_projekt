@@ -507,19 +507,15 @@ import 'package:http/http.dart' as http;
     response = await InternetHandler.getUser();
     singleJson = jsonDecode(response);
     _user = User.fromJson(singleJson);
-
     //print('User ${singleJson}');
 
     response = await InternetHandler.getOrders();
-    singleJson = jsonDecode(response);
-
     jsonData = jsonDecode(response);
 
     _orders.clear();
     _orders.addAll(jsonData.map((item) => Order.fromJson(item)).toList());
 
     response = await InternetHandler.getShoppingCart();
-
     //print('Cart $response');
     singleJson = jsonDecode(response);
     _shoppingCart = ShoppingCart.fromJson(singleJson);
@@ -540,7 +536,7 @@ import 'package:http/http.dart' as http;
 
     print('Got ${_extras}');
 
-     Testcode 
+     Testcode
      */
 
     notifyListeners();
