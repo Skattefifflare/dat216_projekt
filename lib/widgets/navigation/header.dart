@@ -14,16 +14,16 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       child: Row(
         children: [
           //TODO Logo
-          Placeholder(),
+          Placeholder(fallbackWidth: 120),
           HeaderButton(
             icon: Icons.shelves,
             target: '/browse',
-            text: 'Sortiment',
+            text: 'Handla nu',
           ),
           Spacer(),
           //TODO Search bar
           Spacer(),
-          HeaderButton(icon: Icons.shopping_cart_outlined, target: ''),
+          HeaderButton(icon: Icons.shopping_cart_outlined),
           HeaderButton(icon: Icons.person_outline, target: '/profile'),
         ],
       ),

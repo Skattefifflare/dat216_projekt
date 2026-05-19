@@ -4,15 +4,10 @@ import 'package:go_router/go_router.dart';
 
 class HeaderButton extends StatelessWidget {
   final IconData icon;
-  final String target;
+  final String? target;
   final String? text;
 
-  const HeaderButton({
-    required this.icon,
-    required this.target,
-    this.text,
-    super.key,
-  });
+  const HeaderButton({required this.icon, this.text, this.target, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +24,9 @@ class HeaderButton extends StatelessWidget {
       ),
 
       onPressed: () {
-        context.go(target);
+        if (target != null) {
+          context.go(target!);
+        }
       },
       child: Row(children: content),
     );
