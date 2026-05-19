@@ -525,7 +525,7 @@ import 'package:http/http.dart' as http;
     _shoppingCart = ShoppingCart.fromJson(singleJson);
 
     response = await InternetHandler.getExtras();
-    _extras = jsonDecode(response);
+    _extras = response.isEmpty ? {} : jsonDecode(response);
 
     /* Testcode
 
