@@ -1,25 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // Widgets
-  // Header
-  static const headerHeight = 120.0;
-  static const headerPadding = paddingMedium;
-  static const headerButton =
-      (headerHeight - headerPadding * 2 - paddingLarge * 2) * 1.4;
-
-  // Footer
-  static const footerHeight = 24.0;
-
-  // Category Card
-  static const categoryCardMargin = 4.0;
-  static const categoryCardWidth = contentMaxWidth / 3 - categoryCardMargin * 2;
-  static const categoryCardHeight = 200.0;
-  static const categoryCardPadding = 16.0;
-
-  // Profile picture
-  static const profilePictureSize = 76.0;
-
   // Sizes
   // Font
   static const fontMedium = 16.0;
@@ -49,7 +30,31 @@ class AppTheme {
   static const radiusMedium = 8.0;
   static const radiusLarge = 16.0;
 
-  // Other
+  // Widgets
+  // Header
+  static const headerHeight = 120.0;
+  static const headerPadding = paddingMedium;
+  static const headerButton =
+      (headerHeight - headerPadding * 2 - paddingLarge * 2) * 1.4;
+
+  // Footer
+  static const footerHeight = 24.0;
+
+  // Category Card
+  static const categoryCardMargin = paddingSmall;
+  static const categoryCardWidth = contentMaxWidth / 3 - categoryCardMargin * 2;
+  static const categoryCardHeight = 200.0;
+  static const categoryCardPadding = paddingMediumSmall;
+
+  // Profile picture
+  static const profilePictureSize = 84.0;
+
+  // Browse - Filter
+  static const filterWidth = 260.0;
+
+  // Global
+  static const edgePadding = paddingMedium;
+  static const containerPadding = paddingMedium;
   static const contentMaxWidth = 960.0;
 
   static ColorScheme colorScheme = ColorScheme.fromSeed(

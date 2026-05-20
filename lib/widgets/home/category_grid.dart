@@ -15,7 +15,8 @@ class CategoryGrid extends StatelessWidget {
       child: Wrap(
         alignment: .center,
         children: [
-          for (final category in categories) CategoryCard(category: category),
+          // Exclude first category ALL
+          for (final category in categories.sublist(1)) CategoryCard(category: category),
         ],
       ),
     );

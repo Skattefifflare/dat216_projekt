@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dat216_projekt/app_theme.dart';
+import 'package:dat216_projekt/model/filter_handler.dart';
 import 'package:dat216_projekt/model/imat/credit_card.dart';
 import 'package:dat216_projekt/model/imat/customer.dart';
 import 'package:dat216_projekt/model/imat/util/functions.dart';
@@ -12,8 +13,18 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ImatDataHandler(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ImatDataHandler()),
+        ChangeNotifierProxyProvider<ImatDataHandler, FilterHandler>(
+          create: (context) => FilterHandler(),
+          update: (context, dataHandler, previousFilterHandler) {
+            final handler = previousFilterHandler ?? FilterHandler();
+            handler.updateBounds(dataHandler.products);
+            return handler;
+          },
+        ),
+      ],
       child: const App(),
     ),
   );
@@ -28,7 +39,7 @@ class App extends StatelessWidget {
     return MaterialApp.router(
       title: 'iMat',
       routerConfig: appRouter,
-      theme: ThemeData(colorScheme: AppTheme.colorScheme),
+      theme: ThemeData(useMaterial3: true, colorScheme: AppTheme.colorScheme),
     );
   }
 }

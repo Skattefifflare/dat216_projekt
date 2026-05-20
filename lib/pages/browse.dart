@@ -7,12 +7,26 @@ class Browse extends StatelessWidget {
   const Browse({super.key});
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
+      crossAxisAlignment: .start,
       children: [
-        SizedBox(height: 100,),
-        BetterSearch(),
-        SizedBox(height: AppTheme.paddingGiant),
-        ProductGrid(),
+        FilterPanel(),
+        Expanded(
+          child: Padding(
+            padding: const .symmetric(horizontal: AppTheme.edgePadding),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Placeholder(),
+                  Placeholder(),
+                  Placeholder(),
+                  Placeholder(),
+                ],
+              ),
+            ),
+          ),
+        ),
+        SizedBox(width: AppTheme.filterWidth),
       ],
     );
   }
