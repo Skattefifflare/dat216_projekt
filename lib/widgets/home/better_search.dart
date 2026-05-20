@@ -127,7 +127,7 @@ class _SuggestionsListState extends State<SuggestionsList> {
                   title: Text(suggestions[index]),
                 ),
               ),
-              Divider(height: 1,)
+              Divider(height: 1),
             ],
           ),
         ),

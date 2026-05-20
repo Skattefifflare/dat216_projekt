@@ -1,4 +1,3 @@
-import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/filter_handler.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,6 @@ class ProductGrid extends StatelessWidget {
 
     return Container(
       alignment: .topCenter,
-      padding: const .symmetric(horizontal: AppTheme.edgePadding),
       child: SingleChildScrollView(
         child: Wrap(
           children: [
