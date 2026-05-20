@@ -20,9 +20,10 @@ class _ProductGridState extends State<ProductGrid> {
         height: 700,
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-            crossAxisSpacing: AppTheme.paddingHuge,
-            mainAxisSpacing: AppTheme.paddingHuge,
+            crossAxisCount: 5,
+            crossAxisSpacing: AppTheme.paddingSmall,
+            mainAxisSpacing: AppTheme.paddingSmall,
+            childAspectRatio: 260 / 360,
           ),
           itemCount: context.watch<ImatDataHandler>().products.length,
           itemBuilder: (context, index) =>
