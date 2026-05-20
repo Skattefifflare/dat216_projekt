@@ -132,6 +132,9 @@ class Product {
     _imageKey: imageName,
   };
 
+  // Labels relevant for filtering
+  Set<String> get activeLabels => {if (isEcological) ecoKey};
+
   static const _idKey = 'productId';
   static const _catKey = 'category';
   static const _nameKey = 'name';
