@@ -19,17 +19,27 @@ class FoodLabels extends StatelessWidget {
         Container(
           padding: .symmetric(horizontal: AppTheme.paddingTiny),
           decoration: BoxDecoration(
-            color: colorTheme.primaryFixedDim,
             borderRadius: .circular(AppTheme.radiusMedium),
           ),
-          child: CheckboxListTile(
-            title: const Text('Ekolokiskt'),
-            contentPadding: .zero,
-            activeColor: colorTheme.secondary,
-            onChanged: (_) {
-              filterState.toggleLabel(Product.ecoKey);
-            },
-            value: filterState.labels.contains(Product.ecoKey),
+          child: Material(
+            color: Colors.transparent,
+            child: Column(
+              children: [
+                CheckboxListTile(
+                  title: const Text('Ekolokiskt'),
+                  contentPadding: .symmetric(horizontal: AppTheme.paddingSmall),
+                  activeColor: colorTheme.secondary,
+                  tileColor: colorTheme.primaryFixedDim,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: .circular(AppTheme.radiusMedium),
+                  ),
+                  onChanged: (_) {
+                    filterState.toggleLabel(Product.ecoKey);
+                  },
+                  value: filterState.labels.contains(Product.ecoKey),
+                ),
+              ],
+            ),
           ),
         ),
       ],
