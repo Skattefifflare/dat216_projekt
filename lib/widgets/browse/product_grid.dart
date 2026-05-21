@@ -13,7 +13,7 @@ class ProductGrid extends StatelessWidget {
     final filterState = context.watch<FilterHandler>();
     var iMat = context.read<ImatDataHandler>();
 
-    final filteredProducts = filterState.matchingProducts(iMat.selectProducts);
+    final displayProducts = filterState.match(iMat.selectProducts);
 
     return Container(
       alignment: Alignment.topCenter,
@@ -25,9 +25,9 @@ class ProductGrid extends StatelessWidget {
           crossAxisSpacing: AppTheme.paddingSmall,
           mainAxisSpacing: AppTheme.paddingSmall,
         ),
-        itemCount: filteredProducts.length,
+        itemCount: displayProducts.length,
         itemBuilder: (context, index) {
-          return ProductCard(product: filteredProducts[index]);
+          return ProductCard(product: displayProducts[index]);
         },
       ),
     );
