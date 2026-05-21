@@ -27,38 +27,42 @@ class ProductCard extends StatelessWidget {
         ),
         borderRadius: .circular(AppTheme.radiusMedium),
       ),
-      child: Column(
-        crossAxisAlignment: .stretch,
-        children: [
-          Row(
-            mainAxisAlignment: .spaceBetween,
-            children: [
-              Flexible(
-                child: Text(
-                  product.name,
-                  style: TextStyle(fontSize: AppTheme.fontHuge),
+      elevation: AppTheme.productCardElevation,
+      child: Padding(
+        padding: const .all(AppTheme.paddingMediumSmall),
+        child: Column(
+          crossAxisAlignment: .stretch,
+          children: [
+            Row(
+              mainAxisAlignment: .spaceBetween,
+              children: [
+                Flexible(
+                  child: Text(
+                    product.name,
+                    style: TextStyle(fontSize: AppTheme.fontHuge),
+                  ),
                 ),
-              ),
-              FavoriteIcon(product: product),
-            ],
-          ),
-          SizedBox(height: AppTheme.paddingSmall),
-          AspectRatio(
-            aspectRatio: AppTheme.productCardImageAR,
-            child: FittedBox(
-              fit: .cover,
-              clipBehavior: .hardEdge,
-              child: image,
+                FavoriteIcon(product: product),
+              ],
             ),
-          ),
-          SizedBox(height: AppTheme.paddingSmall),
-          Text(
-            '${product.price} ${product.unit}',
-            style: TextStyle(fontSize: AppTheme.fontLarge),
-          ),
-          Spacer(),
-          AddToCart(product: product),
-        ],
+            SizedBox(height: AppTheme.paddingSmall),
+            AspectRatio(
+              aspectRatio: AppTheme.productCardImageAR,
+              child: FittedBox(
+                fit: .cover,
+                clipBehavior: .hardEdge,
+                child: image,
+              ),
+            ),
+            SizedBox(height: AppTheme.paddingSmall),
+            Text(
+              '${product.price} ${product.unit}',
+              style: TextStyle(fontSize: AppTheme.fontLarge),
+            ),
+            Spacer(),
+            AddToCart(product: product),
+          ],
+        ),
       ),
     );
   }

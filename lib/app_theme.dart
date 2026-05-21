@@ -54,6 +54,7 @@ class AppTheme {
   static const productCardFavoriteIconSize = 32.0;
   static const productCardImageAR = 3 / 2;
   static const productCardButtonHeight = productCardHeight / 10;
+  static const productCardElevation = 3.0;
 
   // Browse - Filter
   static const filterWidth = 260.0;

@@ -21,7 +21,6 @@ class AddToCart extends StatelessWidget {
     final dividerColor = colorTheme.onPrimaryFixed;
 
     return Container(
-      margin: .all(AppTheme.paddingMediumSmall),
       height: AppTheme.productCardButtonHeight,
       alignment: .center,
       child: (amount > 0)
