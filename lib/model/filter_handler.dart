@@ -4,17 +4,32 @@ import 'package:dat216_projekt/model/imat/product.dart';
 import 'package:flutter/material.dart';
 
 class FilterHandler extends ChangeNotifier {
-  var sorting = SortingOption.alphabetical;
-  var category = GeneralProductCategory.ALL;
+  var _sorting = SortingOption.alphabetical;
+  var _category = GeneralProductCategory.ALL;
 
   var minPrice = 0.0;
   var maxPrice = 0.0;
-  var currentPrice = 0.0;
+  var _currentPrice = 0.0;
 
   Set<String> labels = {};
 
-  void update(double price) {
-    currentPrice = price;
+  SortingOption get sorting => _sorting;
+  set sorting(SortingOption sorting) {
+    _sorting = sorting;
+
+    notifyListeners();
+  }
+
+  GeneralProductCategory get category => _category;
+  set category(GeneralProductCategory category) {
+    _category = category;
+
+    notifyListeners();
+  }
+
+  double get currentPrice => _currentPrice;
+  set currentPrice(double price) {
+    _currentPrice = price;
 
     notifyListeners();
   }
@@ -24,8 +39,8 @@ class FilterHandler extends ChangeNotifier {
     minPrice = products.map((p) => p.price).reduce(min);
     maxPrice = products.map((p) => p.price).reduce(max);
 
-    // Only change if on default
-    if (currentPrice == 0.0) {
+    // Only change if outside bounds
+    if (currentPrice < minPrice || maxPrice > currentPrice) {
       currentPrice = maxPrice;
     }
 
@@ -44,22 +59,40 @@ class FilterHandler extends ChangeNotifier {
     notifyListeners();
   }
 
-  Iterable<Product> matchingProducts(List<Product> products) {
-    return products.where((product) {
+  List<Product> match(List<Product> allProducts) {
+    final products = allProducts.where((product) {
       final categoryMatch = category.subCategories.contains(product.category);
       final priceMatch = product.price <= currentPrice;
       final labelMatch = product.activeLabels.containsAll(labels);
 
       return categoryMatch && priceMatch && labelMatch;
-    });
+    }).toList();
+    products.sort(sorting.compare);
+
+    return products;
   }
 }
 
 enum SortingOption {
-  alphabetical(displayName: 'Alfabetiskt'),
-  priceRising(displayName: 'Stigande pris'),
-  priceFalling(displayName: 'Fallande pris');
+  alphabetical(displayName: 'Alfabetiskt', compare: _alphabetical),
+  priceRising(displayName: 'Stigande pris', compare: _priceRising),
+  priceFalling(displayName: 'Fallande pris', compare: _priceFalling);
 
   final String displayName;
-  const SortingOption({required this.displayName});
+
+  final int Function(Product a, Product b) compare;
+
+  const SortingOption({required this.displayName, required this.compare});
+
+  static int _alphabetical(Product a, Product b) {
+    return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+  }
+
+  static int _priceRising(Product a, Product b) {
+    return a.price.compareTo(b.price);
+  }
+
+  static int _priceFalling(Product a, Product b) {
+    return b.price.compareTo(a.price);
+  }
 }

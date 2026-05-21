@@ -29,8 +29,8 @@ class PriceSlider extends StatelessWidget {
           value: filterState.currentPrice,
           min: filterState.minPrice,
           max: filterState.maxPrice,
-          onChanged: (value) {
-            filterState.update(value);
+          onChanged: (price) {
+            filterState.currentPrice = price;
           },
         ),
       ],

@@ -2,6 +2,7 @@ import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat/product.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:dat216_projekt/widgets/browse/add_to_cart.dart';
+import 'package:dat216_projekt/widgets/browse/favorite_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,40 +12,57 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imat = context.read<ImatDataHandler>();
-    final image = imat.getImage(product);
+    final colorTheme = Theme.of(context).colorScheme;
+
+    final iMat = context.read<ImatDataHandler>();
+    final image = iMat.getImage(product);
+
     return Card(
-      margin: .all(AppTheme.categoryCardMargin),
-      clipBehavior: Clip.antiAlias,
-      child: Stack(
-        children: [
-          Positioned(
-            left: 0,
-            right: 0,
-            top: 60,
-            child: SizedBox(
-              width: double.infinity,
-              height: 120,
-              child: FittedBox(fit: BoxFit.cover, child: image),
+      // Some images have white background, and there is no perfect white in the color theme
+      color: Colors.white,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(
+          color: colorTheme.primary,
+          width: AppTheme.strokeMedium,
+        ),
+        borderRadius: .circular(AppTheme.radiusMedium),
+      ),
+      elevation: AppTheme.productCardElevation,
+      child: Padding(
+        padding: const .all(AppTheme.paddingMediumSmall),
+        child: Column(
+          crossAxisAlignment: .stretch,
+          children: [
+            Row(
+              mainAxisAlignment: .spaceBetween,
+              children: [
+                Flexible(
+                  child: Text(
+                    product.name,
+                    style: TextStyle(fontSize: AppTheme.fontHuge),
+                  ),
+                ),
+                FavoriteIcon(product: product),
+              ],
             ),
-          ),
-          Positioned(
-            top: AppTheme.paddingTiny,
-            child: Text(
-              product.name,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: AppTheme.fontLarge,
-                fontWeight: FontWeight.bold,
+            SizedBox(height: AppTheme.paddingSmall),
+            AspectRatio(
+              aspectRatio: AppTheme.productCardImageAR,
+              child: FittedBox(
+                fit: .cover,
+                clipBehavior: .hardEdge,
+                child: image,
               ),
             ),
-          ),
-          Positioned(
-            bottom: AppTheme.paddingMedium,
-            right: AppTheme.paddingMedium,
-            child: AddToCart(),
-          ),
-        ],
+            SizedBox(height: AppTheme.paddingSmall),
+            Text(
+              '${product.price} ${product.unit}',
+              style: TextStyle(fontSize: AppTheme.fontLarge),
+            ),
+            Spacer(),
+            AddToCart(product: product),
+          ],
+        ),
       ),
     );
   }

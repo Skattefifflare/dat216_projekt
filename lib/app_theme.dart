@@ -46,11 +46,21 @@ class AppTheme {
   static const categoryCardHeight = 200.0;
   static const categoryCardPadding = paddingMediumSmall;
 
-  // Profile picture
-  static const profilePictureSize = 84.0;
+  // Browse - Grid
+  static const productGridExtent = 340.0;
+
+  // Browse - Card
+  static const productCardHeight = 420.0;
+  static const productCardFavoriteIconSize = 32.0;
+  static const productCardImageAR = 3 / 2;
+  static const productCardButtonHeight = productCardHeight / 10;
+  static const productCardElevation = 3.0;
 
   // Browse - Filter
   static const filterWidth = 260.0;
+
+  // Profile - Picture
+  static const profilePictureSize = 84.0;
 
   // Global
   static const edgePadding = paddingMedium;
