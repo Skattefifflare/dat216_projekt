@@ -1,15 +1,64 @@
+import 'package:dat216_projekt/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class PasswordField extends StatelessWidget {
+  const PasswordField({
+    super.key,
+    this.labelText = 'Lösenord',
+    this.width = 250,
+    this.enabled = true,
+    required this.hintTxt,
+  });
 
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
+  final String labelText;
+  final double width;
+  final bool enabled;
+  final String hintTxt;
 
-class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final theme = Theme.of(context).colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            labelText,
+            textAlign: TextAlign.left,
+            style: const TextStyle(fontSize: AppTheme.fontMedium),
+          ),
+          const SizedBox(height: AppTheme.paddingSmall),
+          SizedBox(
+            width: width,
+            height: 32,
+            child: TextField(
+              enabled: enabled,
+              textAlign: TextAlign.center,
+            
+              obscureText: true,
+              obscuringCharacter: '*',
+              decoration: InputDecoration(
+                hintText: hintTxt,
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 8,
+                  horizontal: 12,
+                ),
+                fillColor: theme.surface,
+                filled: true,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                  borderSide: BorderSide(
+                    color: theme.secondary,
+                    width: AppTheme.strokeTiny,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

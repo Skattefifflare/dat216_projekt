@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 class NameFieldWithButton extends StatelessWidget {
   final String label;
   final String hintTxt;
+  final double? width;
+  final bool enabled;
 
   const NameFieldWithButton({
     super.key,
     required this.label,
     required this.hintTxt,
+    this.width,
+    this.enabled = true,
   });
 
   @override
@@ -26,42 +30,29 @@ class NameFieldWithButton extends StatelessWidget {
             style: const TextStyle(fontSize: AppTheme.fontMedium),
           ),
           const SizedBox(height: AppTheme.paddingSmall),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 250,
-                height: 32,
-                child: TextField(
-                  textAlign: TextAlign.left,
-                  decoration: InputDecoration(
-                    hintText: hintTxt,
-                    fillColor: theme.surface,
-                    filled: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(
-                        AppTheme.radiusMedium,
-                      ),
-                      borderSide: BorderSide(
-                        color: theme.secondary,
-                        width: AppTheme.strokeTiny,
-                      ),
-                    ),
+          SizedBox(
+            width: width ?? 250,
+            height: 32,
+            child: TextField(
+              enabled: enabled,
+              textAlign: TextAlign.center,
+              decoration: InputDecoration(
+                hintText: hintTxt,
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 8,
+                  horizontal: 12,
+                ),
+                fillColor: theme.surface,
+                filled: true,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                  borderSide: BorderSide(
+                    color: theme.secondary,
+                    width: AppTheme.strokeTiny,
                   ),
                 ),
               ),
-              const SizedBox(width: AppTheme.paddingMedium),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: theme.tertiary,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
-                  ),
-                ),
-                child: Text('Ändra', style: TextStyle(color: theme.surface)),
-              ),
-            ],
+            ),
           ),
         ],
       ),
