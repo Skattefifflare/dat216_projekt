@@ -34,16 +34,16 @@ class FilterPanel extends StatelessWidget {
         children: [
           // Sorting
           Text('Sortera efter', style: textTheme.titleLarge),
-          AppDropdown<SortingOption>(
+          AppDropdown<SortingStrategy>(
             onSelected: (value) {
               if (value != null) {
-                filterState.sorting = value;
+                filterState.sortingStrategy = value;
               }
             },
-            initial: filterState.sorting,
+            initial: filterState.sortingStrategy,
             entries: [
-              for (final option in SortingOption.values)
-                DropdownMenuEntry<SortingOption>(
+              for (final option in SortingStrategy.values)
+                DropdownMenuEntry<SortingStrategy>(
                   label: option.displayName,
                   value: option,
                 ),

@@ -4,7 +4,7 @@ import 'package:dat216_projekt/model/imat/product.dart';
 import 'package:flutter/material.dart';
 
 class FilterHandler extends ChangeNotifier {
-  var _sorting = SortingOption.alphabetical;
+  var _sortingStrategy = SortingStrategy.alphabetical;
   var _category = GeneralProductCategory.ALL;
 
   var minPrice = 0.0;
@@ -13,9 +13,9 @@ class FilterHandler extends ChangeNotifier {
 
   Set<String> labels = {};
 
-  SortingOption get sorting => _sorting;
-  set sorting(SortingOption sorting) {
-    _sorting = sorting;
+  SortingStrategy get sortingStrategy => _sortingStrategy;
+  set sortingStrategy(SortingStrategy strategy) {
+    _sortingStrategy = strategy;
 
     notifyListeners();
   }
@@ -67,13 +67,13 @@ class FilterHandler extends ChangeNotifier {
 
       return categoryMatch && priceMatch && labelMatch;
     }).toList();
-    products.sort(sorting.compare);
+    products.sort(sortingStrategy.compare);
 
     return products;
   }
 }
 
-enum SortingOption {
+enum SortingStrategy {
   alphabetical(displayName: 'Alfabetiskt', compare: _alphabetical),
   priceRising(displayName: 'Stigande pris', compare: _priceRising),
   priceFalling(displayName: 'Fallande pris', compare: _priceFalling);
@@ -82,7 +82,7 @@ enum SortingOption {
 
   final int Function(Product a, Product b) compare;
 
-  const SortingOption({required this.displayName, required this.compare});
+  const SortingStrategy({required this.displayName, required this.compare});
 
   static int _alphabetical(Product a, Product b) {
     return a.name.toLowerCase().compareTo(b.name.toLowerCase());
