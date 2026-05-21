@@ -30,7 +30,6 @@ class AppTheme {
   static const radiusMedium = 8.0;
   static const radiusLarge = 16.0;
 
-  // Widgets
   // Header
   static const headerHeight = 120.0;
   static const headerPadding = paddingMedium;
@@ -40,7 +39,7 @@ class AppTheme {
   // Footer
   static const footerHeight = 24.0;
 
-  // Category Card
+  // Home - Category Card
   static const categoryCardMargin = paddingSmall;
   static const categoryCardWidth = contentMaxWidth / 3 - categoryCardMargin * 2;
   static const categoryCardHeight = 200.0;
@@ -49,7 +48,7 @@ class AppTheme {
   // Browse - Grid
   static const productGridExtent = 340.0;
 
-  // Browse - Card
+  // Browse - Product Card
   static const productCardHeight = 420.0;
   static const productCardFavoriteIconSize = 32.0;
   static const productCardImageAR = 3 / 2;
@@ -58,6 +57,9 @@ class AppTheme {
 
   // Browse - Filter
   static const filterWidth = 260.0;
+
+  // Cart
+  static const cartWidth = 600.0;
 
   // Profile - Picture
   static const profilePictureSize = 84.0;
