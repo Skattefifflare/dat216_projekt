@@ -54,10 +54,10 @@ class ProductCard extends StatelessWidget {
           SizedBox(height: AppTheme.paddingSmall),
           Text(
             '${product.price} ${product.unit}',
-            style: TextStyle(fontSize: AppTheme.fontHuge),
+            style: TextStyle(fontSize: AppTheme.fontLarge),
           ),
           Spacer(),
-          AddToCart(),
+          AddToCart(product: product),
         ],
       ),
     );

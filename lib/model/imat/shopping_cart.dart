@@ -1,3 +1,4 @@
+import 'package:dat216_projekt/model/imat/product.dart';
 import 'package:dat216_projekt/model/imat/shopping_item.dart';
 
 class ShoppingCart {
@@ -25,6 +26,15 @@ class ShoppingCart {
 
   Map<String, dynamic> toJson() {
     return {'items': items.map((item) => item.toJson()).toList()};
+  }
+
+  double getProductAmount(Product product) {
+    final shoppingItem = items.firstWhere(
+      (item) => item.product.productId == product.productId,
+      orElse: () => ShoppingItem(product, amount: 0.0),
+    );
+
+    return shoppingItem.amount;
   }
 
   void addItem(ShoppingItem sci, {bool merge = true}) {
