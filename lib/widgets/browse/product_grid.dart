@@ -1,3 +1,4 @@
+import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/filter_handler.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:dat216_projekt/widgets/browse/product_card.dart';
@@ -11,19 +12,23 @@ class ProductGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final filterState = context.watch<FilterHandler>();
     var iMat = context.read<ImatDataHandler>();
-    print(iMat.selectProducts.length);
+
+    final filteredProducts = filterState.matchingProducts(iMat.selectProducts);
 
     return Container(
-      alignment: .topCenter,
-      child: SingleChildScrollView(
-        child: Wrap(
-          children: [
-            for (final product in filterState.matchingProducts(
-              iMat.selectProducts,
-            ))
-              ProductCard(product: product),
-          ],
+      alignment: Alignment.topCenter,
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: AppTheme.productGridExtent,
+
+          mainAxisExtent: AppTheme.productCardHeight,
+          crossAxisSpacing: AppTheme.paddingSmall,
+          mainAxisSpacing: AppTheme.paddingSmall,
         ),
+        itemCount: filteredProducts.length,
+        itemBuilder: (context, index) {
+          return ProductCard(product: filteredProducts[index]);
+        },
       ),
     );
   }

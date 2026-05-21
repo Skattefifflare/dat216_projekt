@@ -44,14 +44,14 @@ class FilterHandler extends ChangeNotifier {
     notifyListeners();
   }
 
-  Iterable<Product> matchingProducts(List<Product> products) {
+  List<Product> matchingProducts(List<Product> products) {
     return products.where((product) {
       final categoryMatch = category.subCategories.contains(product.category);
       final priceMatch = product.price <= currentPrice;
       final labelMatch = product.activeLabels.containsAll(labels);
 
       return categoryMatch && priceMatch && labelMatch;
-    });
+    }).toList();
   }
 }
 
