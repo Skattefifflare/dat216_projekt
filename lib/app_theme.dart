@@ -52,7 +52,7 @@ class AppTheme {
   // Browse - Card
   static const productCardHeight = 400.0;
   static const productCardFavoriteIconSize = 32.0;
-  static const productCardImageAR = 1.0;
+  static const productCardImageAR = 3 / 2;
 
   // Browse - Filter
   static const filterWidth = 260.0;
