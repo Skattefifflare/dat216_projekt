@@ -1,5 +1,6 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat/product.dart';
+import 'package:dat216_projekt/model/imat/product_detail.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:dat216_projekt/widgets/browse/add_to_cart.dart';
 import 'package:dat216_projekt/widgets/browse/favorite_icon.dart';
@@ -8,6 +9,7 @@ import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
+
   const ProductCard({super.key, required this.product});
 
   @override
@@ -16,6 +18,8 @@ class ProductCard extends StatelessWidget {
 
     final iMat = context.read<ImatDataHandler>();
     final image = iMat.getImage(product);
+
+    final ProductDetail details = iMat.getDetail(product)!;
 
     return Card(
       // Some images have white background, and there is no perfect white in the color theme
@@ -36,11 +40,18 @@ class ProductCard extends StatelessWidget {
             Row(
               mainAxisAlignment: .spaceBetween,
               children: [
-                Flexible(
-                  child: Text(
-                    product.name,
-                    style: TextStyle(fontSize: AppTheme.fontHuge),
-                  ),
+                Column(
+                  crossAxisAlignment: .start,
+                  children: [
+                    Text(
+                      product.name,
+                      style: TextStyle(fontSize: AppTheme.fontLarge),
+                    ),
+                    Text(
+                      '${details.brand}',
+                      style: TextStyle(fontSize: AppTheme.fontMedium),
+                    ),
+                  ],
                 ),
                 FavoriteIcon(product: product),
               ],
@@ -54,12 +65,19 @@ class ProductCard extends StatelessWidget {
                 child: image,
               ),
             ),
-            SizedBox(height: AppTheme.paddingSmall),
             Text(
               '${product.price} ${product.unit}',
               style: TextStyle(fontSize: AppTheme.fontLarge),
             ),
+            Text(details.description),
             Spacer(),
+            Row(
+              children: [
+                Icon(Icons.location_on_outlined),
+                Flexible(child: Text(details.origin)),
+              ],
+            ),
+            SizedBox(height: AppTheme.paddingMediumSmall),
             AddToCart(product: product),
           ],
         ),

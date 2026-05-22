@@ -64,6 +64,7 @@ class AddToCart extends StatelessWidget {
                 style: TextStyle(fontSize: AppTheme.fontLarge),
               ),
               icon: Icon(Icons.add_shopping_cart),
+              iconAlignment: .end,
               style: ElevatedButton.styleFrom(
                 backgroundColor: colorTheme.primaryFixedDim,
                 foregroundColor: colorTheme.onPrimaryFixed,

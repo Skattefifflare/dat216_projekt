@@ -49,9 +49,9 @@ class AppTheme {
   static const productGridExtent = 340.0;
 
   // Browse - Product Card
-  static const productCardHeight = 420.0;
+  static const productCardHeight = 460.0;
   static const productCardFavoriteIconSize = 32.0;
-  static const productCardImageAR = 3 / 2;
+  static const productCardImageAR = 4 / 2;
   static const productCardButtonHeight = productCardHeight / 10;
   static const productCardElevation = 3.0;
 
