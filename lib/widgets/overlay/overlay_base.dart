@@ -43,38 +43,48 @@ class _OverlayBaseState extends State<OverlayBase> {
   Widget build(BuildContext context) {
     final colorTheme = Theme.of(context).colorScheme;
 
-    return Stack(
-      children: [
-        GestureDetector(
-          behavior: HitTestBehavior.translucent,
-          onTap: _triggerClose,
-          child: const SizedBox.expand(),
-        ),
-        AnimatedPositioned(
-          top: AppTheme.headerHeight,
-          right: _visible ? 0 : -AppTheme.cartWidth,
-          curve: Curves.easeInOutQuad,
-          duration: const Duration(milliseconds: 300),
-          child: Container(
-            width: AppTheme.cartWidth,
-            decoration: BoxDecoration(
-              color: colorTheme.surfaceContainerHighest,
-              border: .fromLTRB(
-                left: BorderSide(
-                  color: colorTheme.primary,
-                  width: AppTheme.strokeLarge,
+    return Material(
+      type: .transparency,
+      child: Stack(
+        children: [
+          GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: _triggerClose,
+            child: const SizedBox.expand(),
+          ),
+          AnimatedPositioned(
+            top: AppTheme.headerHeight,
+            right: _visible ? 0 : -AppTheme.cartWidth,
+            curve: Curves.easeInOutQuad,
+            duration: const Duration(milliseconds: 300),
+            child: Container(
+              width: AppTheme.cartWidth,
+              padding: .all(AppTheme.edgePadding),
+              constraints: BoxConstraints(
+                maxHeight:
+                    MediaQuery.of(context).size.height - AppTheme.headerHeight,
+              ),
+              decoration: BoxDecoration(
+                color: colorTheme.surfaceContainerHighest,
+                border: .fromLTRB(
+                  left: BorderSide(
+                    color: colorTheme.primary,
+                    width: AppTheme.strokeLarge,
+                  ),
+                  bottom: BorderSide(
+                    color: colorTheme.primary,
+                    width: AppTheme.strokeLarge,
+                  ),
                 ),
-                bottom: BorderSide(
-                  color: colorTheme.primary,
-                  width: AppTheme.strokeLarge,
+                borderRadius: .only(
+                  bottomLeft: .circular(AppTheme.radiusLarge),
                 ),
               ),
-              borderRadius: .only(bottomLeft: .circular(AppTheme.radiusLarge)),
+              child: widget.child,
             ),
-            child: widget.child,
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
