@@ -1,5 +1,3 @@
-import 'package:dat216_projekt/app_theme.dart';
-import 'package:dat216_projekt/main.dart';
 import 'package:dat216_projekt/widgets/checkout/checkout_circle.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +13,7 @@ class _CheckoutStepState extends State<CheckoutStep> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 900,
+      width: 830,
       child: Column(
         children: [
           Row(
@@ -25,21 +23,21 @@ class _CheckoutStepState extends State<CheckoutStep> {
               CheckoutCircle(step: 1, state: getState(1, widget.currentStep), label: "Kundvagn"),
               Column(
                 children: [
-                  SizedBox(width: 100, child: Divider(thickness: 4)),
+                  SizedBox(width: 110, child: Divider(thickness: 6)),
                   Padding(padding: EdgeInsetsGeometry.only(bottom: 45))
                 ],
               ),
               CheckoutCircle(step: 2, state: getState(2, widget.currentStep), label: "Leverans",),
               Column(
                 children: [
-                  SizedBox(width: 100, child: Divider(thickness: 4)),
+                  SizedBox(width: 110, child: Divider(thickness: 6)),
                   Padding(padding: EdgeInsetsGeometry.only(bottom: 45))
                 ],
               ),
               CheckoutCircle(step: 3, state: getState(3, widget.currentStep), label: "Betalning"),
               Column(
                 children: [
-                  SizedBox(width: 100, child: Divider(thickness: 4)),
+                  SizedBox(width: 110, child: Divider(thickness: 6)),
                   Padding(padding: EdgeInsetsGeometry.only(bottom: 45))
                 ],
               ),

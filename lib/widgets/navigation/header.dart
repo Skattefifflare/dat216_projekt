@@ -78,12 +78,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
               width: AppTheme.profileMenuWidth,
               child: ProfileMenu(),
             ),
-          ),
-          //temp för att komma till leverans
-          HeaderButton(
-            icon: Icons.car_crash,
-            onPressed: () => context.go('/checkout'),
-          ),
+          ),       
         ],
       ),
     );

@@ -18,11 +18,11 @@ class CheckoutCircle extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 120,
-          height: 120,
+          width: 125,
+          height: 125,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(width: 2),
+            border: Border.all(width: 5),
             color: getCircleColor(state),
           ),
           child: getCircleIcon(state),
@@ -34,8 +34,8 @@ class CheckoutCircle extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: SizedBox(
-            width: 150,
-            child: Center(child: Text(label, style: TextStyle(fontSize: 28))),
+            width: 125,
+            child: Center(child: Text(label, style: TextStyle(fontSize: 22))),
           ),
         ),
       ],

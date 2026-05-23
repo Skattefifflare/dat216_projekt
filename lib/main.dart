@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/filter_handler.dart';
 import 'package:dat216_projekt/model/imat/credit_card.dart';
@@ -8,6 +7,7 @@ import 'package:dat216_projekt/model/imat/util/functions.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:dat216_projekt/model/internet_handler.dart';
 import 'package:dat216_projekt/routes.dart';
+import 'package:dat216_projekt/widgets/checkout/checkout_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +23,9 @@ void main() {
             handler.updateBounds(dataHandler.products);
             return handler;
           },
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CheckoutNavigation(),
         ),
       ],
       child: const App(),
