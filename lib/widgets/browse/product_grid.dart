@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/filter_handler.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
@@ -25,7 +27,7 @@ class ProductGrid extends StatelessWidget {
           crossAxisSpacing: AppTheme.paddingSmall,
           mainAxisSpacing: AppTheme.paddingSmall,
         ),
-        itemCount: displayProducts.length - 1,
+        itemCount: max(0, displayProducts.length - 1),
         itemBuilder: (context, index) {
           return ProductCard(product: displayProducts[index]);
         },
