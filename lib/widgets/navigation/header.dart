@@ -25,6 +25,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
           Spacer(),
           HeaderButton(icon: Icons.shopping_cart_outlined),
           HeaderButton(icon: Icons.person_outline, target: '/profile'),
+          HeaderButton(icon: Icons.car_crash, target: '/checkout'), //temp för att komma till leverans
         ],
       ),
     );
