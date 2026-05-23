@@ -48,7 +48,7 @@ class ProductCard extends StatelessWidget {
                       style: TextStyle(fontSize: AppTheme.fontLarge),
                     ),
                     Text(
-                      '${details.brand}',
+                      details.brand,
                       style: TextStyle(fontSize: AppTheme.fontMedium),
                     ),
                   ],

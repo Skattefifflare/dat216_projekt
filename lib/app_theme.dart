@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   // Sizes
-  // Font
-  static const fontMedium = 16.0;
-  static const fontLarge = 24.0;
-  static const fontHuge = 32.0;
-  static const fontGiant = 48.0;
-  static const fontTitle = 96.0;
-
   // Padding
   static const paddingTiny = 4.0;
   static const paddingSmall = 8.0;
@@ -29,6 +22,16 @@ class AppTheme {
   static const radiusSmall = 4.0;
   static const radiusMedium = 8.0;
   static const radiusLarge = 16.0;
+
+  // Font
+  static const fontMedium = 16.0;
+  static const fontLarge = 24.0;
+  static const fontHuge = 32.0;
+  static const fontGiant = 48.0;
+  static const fontTitle = 96.0;
+
+  // Icon
+  static const iconLarge = 32.0;
 
   // Header
   static const headerHeight = 120.0;
@@ -52,14 +55,18 @@ class AppTheme {
   static const productCardHeight = 460.0;
   static const productCardFavoriteIconSize = 32.0;
   static const productCardImageAR = 4 / 2;
-  static const productCardButtonHeight = productCardHeight / 10;
   static const productCardElevation = 3.0;
 
   // Browse - Filter
   static const filterWidth = 260.0;
 
   // Cart
-  static const cartWidth = 600.0;
+  static const cartWidth = 500.0;
+  static const cartCardHeight = 150.0;
+
+  // Add to Cart
+  static const addToCartAmountWidth = 80.0;
+  static const addToCartButtonHeight = productCardHeight / 10;
 
   // Profile - Picture
   static const profilePictureSize = 84.0;

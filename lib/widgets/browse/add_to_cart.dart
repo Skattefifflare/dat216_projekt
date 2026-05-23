@@ -17,40 +17,43 @@ class AddToCart extends StatelessWidget {
 
     final amount = iMat.getShoppingCart().getProductAmount(product);
 
-    const dividerSize = 10.0;
-    final dividerColor = colorTheme.onPrimaryFixed;
-
     return Container(
-      height: AppTheme.productCardButtonHeight,
+      height: AppTheme.addToCartButtonHeight,
       alignment: .center,
       child: (amount > 0)
           ? Card(
               color: colorTheme.primaryFixedDim,
               margin: .zero,
+              shape: RoundedRectangleBorder(
+                borderRadius: .circular(AppTheme.addToCartButtonHeight / 2),
+              ),
               child: Row(
-                mainAxisAlignment: .center,
+                mainAxisAlignment: .spaceBetween,
                 mainAxisSize: .min,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.remove),
+                    icon: Icon(Icons.remove, size: AppTheme.iconLarge),
                     onPressed: () {
                       iMat.shoppingCartUpdate(ShoppingItem(product), delta: -1);
                     },
                   ),
-                  VerticalDivider(width: dividerSize, color: dividerColor),
                   Container(
+                    width: AppTheme.addToCartAmountWidth,
+                    color: colorTheme.surfaceContainer,
+                    alignment: .center,
                     padding: const .only(
                       left: AppTheme.paddingMedium,
                       right: AppTheme.paddingMedium,
                     ),
                     child: Text(
                       amount.toString(),
+                      overflow: .fade,
+                      softWrap: false,
                       style: TextStyle(fontSize: AppTheme.fontLarge),
                     ),
                   ),
-                  VerticalDivider(width: dividerSize, color: dividerColor),
                   IconButton(
-                    icon: Icon(Icons.add),
+                    icon: Icon(Icons.add, size: AppTheme.iconLarge),
                     onPressed: () {
                       iMat.shoppingCartUpdate(ShoppingItem(product), delta: 1);
                     },
