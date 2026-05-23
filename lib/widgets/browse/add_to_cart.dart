@@ -2,6 +2,7 @@ import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat/product.dart';
 import 'package:dat216_projekt/model/imat/shopping_item.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
+import 'package:dat216_projekt/widgets/appIconButton.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -61,21 +62,10 @@ class AddToCart extends StatelessWidget {
                 ],
               ),
             )
-          : ElevatedButton.icon(
-              label: Text(
-                'Lägg i kundvagn',
-                style: TextStyle(fontSize: AppTheme.fontLarge),
-              ),
-              icon: Icon(Icons.add_shopping_cart),
-              iconAlignment: .end,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: colorTheme.primaryFixedDim,
-                foregroundColor: colorTheme.onPrimaryFixed,
-                minimumSize: Size(0, .infinity),
-              ),
-              onPressed: () {
-                iMat.shoppingCartAdd(ShoppingItem(product));
-              },
+          : AppIconButton(
+              text: 'Lägg till',
+              icon: Icons.add_shopping_cart,
+              onPressed: () => iMat.shoppingCartAdd(ShoppingItem(product)),
             ),
     );
   }

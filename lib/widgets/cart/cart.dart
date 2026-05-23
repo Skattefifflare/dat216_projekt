@@ -1,5 +1,6 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
+import 'package:dat216_projekt/widgets/appIconButton.dart';
 import 'package:dat216_projekt/widgets/cart/cart_card.dart';
 import 'package:dat216_projekt/widgets/overlay/overlay_controller.dart';
 import 'package:flutter/material.dart';
@@ -39,17 +40,15 @@ class Cart extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _elevatedIconButton(
-              context,
-              'Töm',
-              Icons.remove_shopping_cart_outlined,
-              () => iMat.shoppingCartClear(),
+            AppIconButton(
+              text: 'Töm',
+              icon: Icons.remove_shopping_cart_outlined,
+              onPressed: () => iMat.shoppingCartClear(),
             ),
-            _elevatedIconButton(
-              context,
-              'Till kassan',
-              Icons.arrow_forward,
-              () {
+            AppIconButton(
+              text: 'Till kassan',
+              icon: Icons.arrow_forward,
+              onPressed: () {
                 context.go('/checkout');
                 OverlayController.close();
               },
@@ -57,26 +56,6 @@ class Cart extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-
-  ElevatedButton _elevatedIconButton(
-    BuildContext context,
-    String text,
-    IconData icon,
-    VoidCallback onPressed,
-  ) {
-    final colorTheme = Theme.of(context).colorScheme;
-
-    return ElevatedButton.icon(
-      label: Text(text, style: TextStyle(fontSize: AppTheme.fontHuge)),
-      icon: Icon(icon, size: AppTheme.iconLarge),
-      iconAlignment: .end,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: colorTheme.primaryFixedDim,
-        foregroundColor: colorTheme.onPrimaryFixed,
-      ),
-      onPressed: onPressed,
     );
   }
 }
