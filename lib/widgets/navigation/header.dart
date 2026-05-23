@@ -2,6 +2,7 @@ import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:dat216_projekt/widgets/cart/cart.dart';
 import 'package:dat216_projekt/widgets/navigation/header_button.dart';
+import 'package:dat216_projekt/widgets/navigation/profile_menu.dart';
 import 'package:dat216_projekt/widgets/overlay/overlay_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -72,7 +73,11 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
           ),
           HeaderButton(
             icon: Icons.person_outline,
-            onPressed: () => context.go('/profile'),
+            onPressed: () => OverlayController.open(
+              context,
+              width: AppTheme.profileMenuWidth,
+              child: ProfileMenu(),
+            ),
           ),
           //temp för att komma till leverans
           HeaderButton(

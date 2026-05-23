@@ -58,7 +58,7 @@ class _OverlayBaseState extends State<OverlayBase> {
             curve: Curves.easeInOutQuad,
             duration: const Duration(milliseconds: 300),
             child: Container(
-              width: AppTheme.cartWidth,
+              width: widget.width,
               padding: .all(AppTheme.edgePadding),
               constraints: BoxConstraints(
                 maxHeight:

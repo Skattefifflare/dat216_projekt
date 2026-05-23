@@ -68,6 +68,9 @@ class AppTheme {
   static const addToCartAmountWidth = 80.0;
   static const addToCartButtonHeight = productCardHeight / 10;
 
+  // Profile menu
+  static const profileMenuWidth = 300.0;
+
   // Profile - Picture
   static const profilePictureSize = 84.0;
 
