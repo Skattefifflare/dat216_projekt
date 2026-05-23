@@ -41,6 +41,11 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
             icon: Icons.person_outline,
             onPressed: () => context.go('/profile'),
           ),
+          //temp för att komma till leverans
+          HeaderButton(
+            icon: Icons.car_crash,
+            onPressed: () => context.go('/checkout'),
+          ),
         ],
       ),
     );
