@@ -1,7 +1,7 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/widgets/checkout/reviews/cart_review.dart';
 import 'package:dat216_projekt/widgets/checkout/checkout_navigation.dart';
-import 'package:dat216_projekt/widgets/checkout/checkout_step.dart';
+import 'package:dat216_projekt/widgets/checkout/checkout_numbers.dart';
 import 'package:dat216_projekt/widgets/checkout/reviews/confirmation_review.dart';
 import 'package:dat216_projekt/widgets/checkout/reviews/delivery_review.dart';
 import 'package:dat216_projekt/widgets/checkout/reviews/payment_review.dart';
@@ -38,7 +38,7 @@ class _CheckoutState extends State<Checkout> {
       children: [
         SizedBox(height: AppTheme.paddingLarge),
         Center(
-          child: CheckoutStep(
+          child: CheckoutNumbers(
             currentStep: nav.currentStep,
           ),
         ),
@@ -47,6 +47,7 @@ class _CheckoutState extends State<Checkout> {
           width: 1200,
           height: 550,
           child: Card(
+            
             child: Column(
               children: [
                 SizedBox(height: AppTheme.paddingMedium),

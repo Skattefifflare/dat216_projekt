@@ -8,14 +8,12 @@ class FoodLabels extends StatelessWidget {
   const FoodLabels({super.key});
   @override
   Widget build(BuildContext context) {
-    final colorTheme = Theme.of(context).colorScheme;
-    final textTheme = TextTheme.of(context);
     final filterState = context.watch<FilterHandler>();
-
+    final theme = Theme.of(context).colorScheme; 
     return Column(
       crossAxisAlignment: .start,
       children: [
-        Text('Märkningar', style: textTheme.titleLarge),
+        Text('Märkningar', style: AppTheme.textMediumThick()),
         Container(
           padding: .symmetric(horizontal: AppTheme.paddingTiny),
           decoration: BoxDecoration(
@@ -26,16 +24,20 @@ class FoodLabels extends StatelessWidget {
             child: Column(
               children: [
                 CheckboxListTile(
-                  title: const Text('Ekolokiskt'),
+                  title: Text('Ekologiskt', style: AppTheme.textMediumThin(color: theme.surface),),
                   contentPadding: .symmetric(horizontal: AppTheme.paddingSmall),
-                  activeColor: colorTheme.secondary,
-                  tileColor: colorTheme.primaryFixedDim,
+                  activeColor: theme.tertiary,
+                  tileColor: theme.secondary,                 
                   shape: RoundedRectangleBorder(
                     borderRadius: .circular(AppTheme.radiusMedium),
                   ),
                   onChanged: (_) {
                     filterState.toggleLabel(Product.ecoKey);
                   },
+                  side: BorderSide(
+                    color: theme.outline,
+                    width: AppTheme.strokeSmall
+                  ),
                   value: filterState.labels.contains(Product.ecoKey),
                 ),
               ],

@@ -64,7 +64,7 @@ class _AdressState extends State<Adress> {
         children: [
           Row(
             children: [
-              const Text('Lägg till Adress', style: TextStyle(fontSize: AppTheme.fontMedium, fontWeight: FontWeight.bold)),
+              Text('Lägg till Adress', style: AppTheme.textMediumNormal()),
               const Spacer(),
               IconButton(
                 icon: const Icon(Icons.add, color: Colors.white),

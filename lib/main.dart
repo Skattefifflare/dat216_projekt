@@ -24,9 +24,7 @@ void main() {
             return handler;
           },
         ),
-        ChangeNotifierProvider(
-          create: (_) => CheckoutNavigation(),
-        ),
+        ChangeNotifierProvider(create: (_) => CheckoutNavigation()),
       ],
       child: const App(),
     ),
@@ -35,14 +33,27 @@ void main() {
 
 class App extends StatelessWidget {
   const App({super.key});
-
+  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'iMat',
       routerConfig: appRouter,
-      theme: ThemeData(useMaterial3: true, colorScheme: AppTheme.colorScheme),
+      theme: ThemeData(
+        useMaterial3: true, 
+        colorScheme: AppTheme.colorScheme,
+        cardTheme: CardThemeData(
+          color: AppTheme.colorScheme.onPrimary,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+            side: BorderSide(
+              color: AppTheme.colorScheme.outline,
+              width: 2,
+            )
+          ),
+        )),
     );
   }
 }

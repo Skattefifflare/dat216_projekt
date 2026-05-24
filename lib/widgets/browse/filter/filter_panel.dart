@@ -12,8 +12,6 @@ class FilterPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorTheme = Theme.of(context).colorScheme;
-    final textTheme = TextTheme.of(context);
     final filterState = context.watch<FilterHandler>();
 
     // Wait for data provider to finalize
@@ -25,7 +23,6 @@ class FilterPanel extends StatelessWidget {
       width: AppTheme.filterWidth,
       padding: .all(AppTheme.containerPadding),
       decoration: BoxDecoration(
-        color: colorTheme.surfaceContainer,
         borderRadius: .circular(AppTheme.radiusMedium),
       ),
       child: Column(
@@ -33,7 +30,7 @@ class FilterPanel extends StatelessWidget {
         crossAxisAlignment: .start,
         children: [
           // Sorting
-          Text('Sortera efter', style: textTheme.titleLarge),
+          Text('Sortera efter', style: AppTheme.textMediumThick()),
           AppDropdown<SortingStrategy>(
             onSelected: (value) {
               if (value != null) {
@@ -53,7 +50,7 @@ class FilterPanel extends StatelessWidget {
           Divider(),
 
           // Categories
-          Text('Kategori', style: textTheme.titleLarge),
+          Text('Kategori', style: AppTheme.textMediumThick()),
           AppDropdown<GeneralProductCategory>(
             onSelected: (value) {
               if (value != null) {

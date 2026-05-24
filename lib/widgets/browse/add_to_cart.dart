@@ -14,7 +14,7 @@ class AddToCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final iMat = context.watch<ImatDataHandler>();
-    final colorTheme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context).colorScheme; 
 
     final amount = iMat.getShoppingCart().getProductAmount(product);
 
@@ -23,7 +23,7 @@ class AddToCart extends StatelessWidget {
       alignment: .center,
       child: (amount > 0)
           ? Card(
-              color: colorTheme.primaryFixedDim,
+              color: theme.tertiary,
               margin: .zero,
               shape: RoundedRectangleBorder(
                 borderRadius: .circular(AppTheme.addToCartButtonHeight / 2),
@@ -40,7 +40,7 @@ class AddToCart extends StatelessWidget {
                   ),
                   Container(
                     width: AppTheme.addToCartAmountWidth,
-                    color: colorTheme.surfaceContainer,
+                    color: theme.surfaceContainer,
                     alignment: .center,
                     padding: const .only(
                       left: AppTheme.paddingMedium,
@@ -50,7 +50,7 @@ class AddToCart extends StatelessWidget {
                       amount.toString(),
                       overflow: .fade,
                       softWrap: false,
-                      style: TextStyle(fontSize: AppTheme.fontLarge),
+                      style: AppTheme.textLargeNormal(),
                     ),
                   ),
                   IconButton(

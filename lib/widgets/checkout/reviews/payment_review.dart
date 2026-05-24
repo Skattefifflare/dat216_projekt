@@ -1,7 +1,7 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:dat216_projekt/widgets/checkout/misc/vert_divide.dart';
-import 'package:dat216_projekt/widgets/checkout/navigation_button.dart';
+import 'package:dat216_projekt/widgets/checkout/misc/navigation_button.dart';
 import 'package:dat216_projekt/widgets/checkout/review_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -108,7 +108,7 @@ class PaymentReview extends StatelessWidget {
         VertDivide(),
         SizedBox(
           width: 500,
-          child: Column(children: [NavigationButton(goesForward: false)]),
+          child: Column(children: [NavigationButton(goesForward: false, width: 300,)]),
         ),
       ],
     );

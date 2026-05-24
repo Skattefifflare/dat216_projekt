@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   // Sizes
@@ -23,12 +24,7 @@ class AppTheme {
   static const radiusMedium = 8.0;
   static const radiusLarge = 16.0;
 
-  // Font
-  static const fontMedium = 16.0;
-  static const fontLarge = 24.0;
-  static const fontHuge = 32.0;
-  static const fontGiant = 48.0;
-  static const fontTitle = 96.0;
+
 
   // Icon
   static const iconLarge = 32.0;
@@ -79,10 +75,85 @@ class AppTheme {
   static const containerPadding = paddingMedium;
   static const contentMaxWidth = 960.0;
 
-  static ColorScheme colorScheme = ColorScheme.fromSeed(
-    seedColor: Color.fromARGB(255, 108, 173, 130),
+  // Fonts
+  static TextStyle textSmall({Color? color}) => GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: color,
+  );
+  
+  static TextStyle textMediumSerif({Color? color}) =>GoogleFonts.ptSerif(
+    fontSize: 30,
+    fontWeight: FontWeight.w500,
+    color: color,
+  );
+  static TextStyle textMediumThick({Color? color}) => GoogleFonts.roboto(
+    fontSize: 24,
+    fontWeight: FontWeight.w800,
+    color: color,
+  );
+  static TextStyle textMediumThin({Color? color}) => GoogleFonts.inter(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    color: color,
+  );
+  static TextStyle textMediumNormal({Color? color}) => GoogleFonts.roboto(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: color,
+  );
+  
+  static TextStyle textLargeNormal({Color? color}) => GoogleFonts.inter(
+    fontSize: 24,
+    fontWeight: FontWeight.w500,
+    color: color,
+  );
+  static TextStyle textLargeThick({Color? color}) => GoogleFonts.inter(
+    fontSize: 36,
+    fontWeight: FontWeight.w700,
+    color: color,
+  );
 
-    // Overrides
-    primary: Color.fromARGB(255, 108, 173, 130),
+  static TextStyle textHuge({Color? color}) => GoogleFonts.inter(
+    fontSize: 32,
+    fontWeight: FontWeight.w500,
+    color: color,
+  );
+  static TextStyle textGiant({Color? color}) => GoogleFonts.inter(
+    fontSize: 48,
+    fontWeight: FontWeight.w500,
+    color: color,
+  );
+  static TextStyle textTitle({Color? color}) => GoogleFonts.inter(
+    fontSize: 96,
+    fontWeight: FontWeight.w500,
+    color: color,
+  );
+  
+  
+
+
+  static ColorScheme colorScheme = ColorScheme.fromSeed(
+    seedColor: Color.fromARGB(255, 45, 106, 79),
+    brightness: Brightness.light,
+
+    primary: Color.fromARGB(255, 45, 106, 79), 
+    onPrimary: Color.fromARGB(255, 255, 253, 253), 
+
+    secondary: Color.fromARGB(255, 71, 125, 100), 
+    onSecondary: Color.fromARGB(255, 255, 253, 253), 
+
+    tertiary: Color.fromARGB(255, 83, 183, 136),
+    onTertiary: Color.fromARGB(255, 255, 253, 253),
+
+    surface: Color.fromARGB(255, 248, 250, 248), 
+    onSurface: Color.fromARGB(255, 27, 46, 34),
+    surfaceContainer: Color.fromARGB(255, 255, 253, 253),
+    outline: Color.fromARGB(255, 224, 234, 226),
+
+    error: Colors.redAccent, 
+    onError: Colors.orange, 
   );
 }
+
+

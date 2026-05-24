@@ -15,8 +15,8 @@ class AppDropdown<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorTheme = Theme.of(context).colorScheme;
-    final color = colorTheme.primaryFixedDim;
+    final theme = Theme.of(context).colorScheme; 
+    final color = theme.onPrimary;
 
     final width = AppTheme.filterWidth - 2 * AppTheme.edgePadding;
 

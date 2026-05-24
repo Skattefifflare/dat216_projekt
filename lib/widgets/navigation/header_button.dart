@@ -15,20 +15,27 @@ class HeaderButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> content = [Icon(icon, size: AppTheme.headerButton)];
+    final theme = Theme.of(context).colorScheme;
+    List<Widget> content = [
+      Icon(icon, size: AppTheme.headerButton, color: theme.surface),
+    ];
 
     if (text != null) {
-      content.add(Text(text!, style: TextStyle(fontSize: AppTheme.fontHuge)));
+      content.add(Text(text!, style: AppTheme.textLargeThick(color: theme.surface)));
     }
 
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        shape: (text == null) ? CircleBorder() : null,
-        padding: .all(AppTheme.paddingLarge),
-      ),
+    return SizedBox(
+      height: 82,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: theme.secondary,
+          shape: (text == null) ? CircleBorder() : null,
+          padding: .all(AppTheme.paddingLarge),
+        ),
 
-      onPressed: onPressed,
-      child: Row(children: content),
+        onPressed: onPressed,
+        child: Row(children: content),
+      ),
     );
   }
 }

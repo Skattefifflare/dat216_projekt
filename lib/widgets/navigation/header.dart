@@ -15,6 +15,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).colorScheme;
     final iMat = context.watch<ImatDataHandler>();
     final colorTheme = Theme.of(context).colorScheme;
 
@@ -44,12 +45,12 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               Positioned(
-                bottom: 0,
+                bottom: -5,
                 left: 0,
                 child: Container(
                   padding: .all(AppTheme.paddingTiny),
                   decoration: BoxDecoration(
-                    color: colorTheme.surfaceContainerLow,
+                    color: theme.tertiary,
                     shape: .circle,
                     border: .all(
                       width: AppTheme.strokeMedium,
@@ -62,10 +63,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                         .items
                         .fold<double>(0, (sum, item) => sum + item.amount)
                         .toString(),
-                    style: TextStyle(
-                      fontSize: AppTheme.fontMedium + 4,
-                      fontWeight: .w600,
-                    ),
+                    style: AppTheme.textMediumThin(color: theme.onPrimary)
                   ),
                 ),
               ),

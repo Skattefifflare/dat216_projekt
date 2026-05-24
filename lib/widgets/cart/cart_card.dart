@@ -26,11 +26,11 @@ class CartCard extends StatelessWidget {
               children: [
                 Text(
                   item.product.name,
-                  style: TextStyle(fontSize: AppTheme.fontHuge),
+                  style: AppTheme.textHuge(),
                 ),
                 Text(
                   '${item.product.price} ${item.product.unit}',
-                  style: TextStyle(fontSize: AppTheme.fontLarge),
+                  style: AppTheme.textLargeNormal(),
                 ),
               ],
             ),

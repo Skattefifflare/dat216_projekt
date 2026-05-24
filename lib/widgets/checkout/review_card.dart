@@ -40,11 +40,11 @@ class ReviewCard extends StatelessWidget {
                     children: [
                       Text(
                         item.product.name,
-                        style: TextStyle(fontSize: AppTheme.fontLarge),
+                        style: AppTheme.textLargeNormal(),
                       ),
                       Text(
                         '${item.product.price} ${item.product.unit}',
-                        style: TextStyle(fontSize: AppTheme.fontLarge),
+                        style: AppTheme.textLargeNormal(),
                       ),
                     ],
                   ),

@@ -23,15 +23,7 @@ class ProductCard extends StatelessWidget {
 
     return Card(
       // Some images have white background, and there is no perfect white in the color theme
-      color: Colors.white,
-      shape: RoundedRectangleBorder(
-        side: BorderSide(
-          color: colorTheme.primary,
-          width: AppTheme.strokeMedium,
-        ),
-        borderRadius: .circular(AppTheme.radiusMedium),
-      ),
-      elevation: AppTheme.productCardElevation,
+      
       child: Padding(
         padding: const .all(AppTheme.paddingMediumSmall),
         child: Column(
@@ -45,11 +37,11 @@ class ProductCard extends StatelessWidget {
                   children: [
                     Text(
                       product.name,
-                      style: TextStyle(fontSize: AppTheme.fontLarge),
+                      style: AppTheme.textMediumThick(),
                     ),
                     Text(
                       details.brand,
-                      style: TextStyle(fontSize: AppTheme.fontMedium),
+                      style: AppTheme.textSmall(),
                     ),
                   ],
                 ),
@@ -67,7 +59,7 @@ class ProductCard extends StatelessWidget {
             ),
             Text(
               '${product.price} ${product.unit}',
-              style: TextStyle(fontSize: AppTheme.fontLarge),
+              style: AppTheme.textLargeNormal(),
             ),
             Text(details.description),
             Spacer(),

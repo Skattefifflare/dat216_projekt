@@ -12,18 +12,11 @@ class HomeText extends StatelessWidget {
       children: [
         Text(
           "Välkommen till iMat!",
-          style: TextStyle(
-            fontSize: AppTheme.fontTitle,
-            fontWeight: FontWeight.bold,
-          ),
+          style: AppTheme.textTitle()
         ),
         Text(
           "Utforska vårt breda sortiment och hitta dina favoriter",
-          style: TextStyle(
-            fontSize: AppTheme.fontHuge,
-            color: theme.onSurface,
-            fontWeight: FontWeight.normal,
-          ),
+          style: AppTheme.textHuge()
         ),
       ],
     );

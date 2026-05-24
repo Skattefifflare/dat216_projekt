@@ -32,7 +32,7 @@ class Profile extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppTheme.paddingMediumSmall),
-          Text('Hjördis', style: TextStyle(fontSize: AppTheme.fontGiant)),
+          Text('Hjördis', style: AppTheme.textGiant()),
           const SizedBox(height: AppTheme.paddingHuge),
           LayoutBuilder(
             builder: (context, constraints) {

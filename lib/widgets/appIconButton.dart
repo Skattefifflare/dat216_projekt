@@ -17,7 +17,7 @@ class AppIconButton extends StatelessWidget {
     final colorTheme = Theme.of(context).colorScheme;
 
     return ElevatedButton.icon(
-      label: Text(text, style: TextStyle(fontSize: AppTheme.fontHuge)),
+      label: Text(text, style: AppTheme.textHuge()),
       icon: Icon(icon, size: AppTheme.iconLarge),
       iconAlignment: .end,
       style: ElevatedButton.styleFrom(

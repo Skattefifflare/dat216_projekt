@@ -27,7 +27,7 @@ class Cart extends StatelessWidget {
         ),
         SizedBox(height: AppTheme.paddingMedium),
         DefaultTextStyle(
-          style: TextStyle(fontSize: AppTheme.fontHuge),
+          style: AppTheme.textHuge(),
           child: Row(
             mainAxisAlignment: .spaceBetween,
             children: [

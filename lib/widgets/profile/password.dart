@@ -27,7 +27,7 @@ class PasswordField extends StatelessWidget {
           Text(
             labelText,
             textAlign: TextAlign.left,
-            style: const TextStyle(fontSize: AppTheme.fontMedium),
+            style: AppTheme.textMediumNormal(),
           ),
           const SizedBox(height: AppTheme.paddingSmall),
           SizedBox(

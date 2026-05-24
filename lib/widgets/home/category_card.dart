@@ -47,11 +47,7 @@ class CategoryCard extends StatelessWidget {
               children: [
                 Text(
                   category.title,
-                  style: TextStyle(
-                    color: theme.onPrimary,
-                    fontSize: AppTheme.fontHuge,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTheme.textHuge(color: theme.onPrimary)
                 ),
                 Text(
                   category.description,
@@ -67,9 +63,9 @@ class CategoryCard extends StatelessWidget {
             child: IconButton(
               onPressed: () {},
               icon: const Icon(Icons.arrow_forward_ios),
-              color: theme.onPrimary,
+              color: theme.surface,
               style: IconButton.styleFrom(
-                backgroundColor: AppTheme.colorScheme.primary,
+                backgroundColor: theme.tertiary,
                 shape: const CircleBorder(),
               ),
             ),
