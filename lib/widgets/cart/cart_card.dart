@@ -24,10 +24,7 @@ class CartCard extends StatelessWidget {
             Row(
               mainAxisAlignment: .spaceBetween,
               children: [
-                Text(
-                  item.product.name,
-                  style: AppTheme.textHuge(),
-                ),
+                Text(item.product.name, style: AppTheme.textHuge()),
                 Text(
                   '${item.product.price} ${item.product.unit}',
                   style: AppTheme.textLargeNormal(),
@@ -43,8 +40,9 @@ class CartCard extends StatelessWidget {
                   width: AppTheme.addToCartButtonHeight,
                   child: IconButton(
                     icon: Icon(Icons.delete_outline),
+                    color: colorTheme.onTertiary,
                     style: IconButton.styleFrom(
-                      backgroundColor: colorTheme.primaryFixedDim,
+                      backgroundColor: colorTheme.tertiary,
                     ),
                     onPressed: () {
                       context.read<ImatDataHandler>().shoppingCartRemove(item);

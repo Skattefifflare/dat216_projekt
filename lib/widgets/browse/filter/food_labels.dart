@@ -9,7 +9,7 @@ class FoodLabels extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final filterState = context.watch<FilterHandler>();
-    final theme = Theme.of(context).colorScheme; 
+    final theme = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: .start,
       children: [
@@ -24,10 +24,13 @@ class FoodLabels extends StatelessWidget {
             child: Column(
               children: [
                 CheckboxListTile(
-                  title: Text('Ekologiskt', style: AppTheme.textMediumThin(color: theme.surface),),
+                  title: Text(
+                    'Ekologiskt',
+                    style: AppTheme.textMediumThin(color: theme.surface),
+                  ),
                   contentPadding: .symmetric(horizontal: AppTheme.paddingSmall),
                   activeColor: theme.tertiary,
-                  tileColor: theme.secondary,                 
+                  tileColor: theme.secondary,
                   shape: RoundedRectangleBorder(
                     borderRadius: .circular(AppTheme.radiusMedium),
                   ),
@@ -36,7 +39,7 @@ class FoodLabels extends StatelessWidget {
                   },
                   side: BorderSide(
                     color: theme.outline,
-                    width: AppTheme.strokeSmall
+                    width: AppTheme.strokeSmall,
                   ),
                   value: filterState.labels.contains(Product.ecoKey),
                 ),

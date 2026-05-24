@@ -15,8 +15,8 @@ class AppDropdown<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).colorScheme; 
-    final color = theme.onPrimary;
+    final theme = Theme.of(context).colorScheme;
+    final color = theme.secondary;
 
     final width = AppTheme.filterWidth - 2 * AppTheme.edgePadding;
 
@@ -25,8 +25,16 @@ class AppDropdown<T> extends StatelessWidget {
 
       // Style changes
       // Larger icon
-      trailingIcon: Icon(Icons.arrow_drop_down, size: 32),
-      selectedTrailingIcon: Icon(Icons.arrow_drop_up, size: 32),
+      trailingIcon: Icon(
+        Icons.arrow_drop_down,
+        size: 32,
+        color: theme.onTertiary,
+      ),
+      selectedTrailingIcon: Icon(
+        Icons.arrow_drop_up,
+        size: 32,
+        color: theme.onTertiary,
+      ),
 
       // Sizing
       width: width,
@@ -54,6 +62,7 @@ class AppDropdown<T> extends StatelessWidget {
           ),
         ),
       ),
+      textStyle: AppTheme.textMediumNormal(color: theme.onTertiary),
 
       // Functionality
       initialSelection: initial,

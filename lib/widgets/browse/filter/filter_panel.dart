@@ -13,6 +13,7 @@ class FilterPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final filterState = context.watch<FilterHandler>();
+    final theme = Theme.of(context).colorScheme;
 
     // Wait for data provider to finalize
     if (filterState.minPrice == filterState.maxPrice) {
@@ -22,9 +23,7 @@ class FilterPanel extends StatelessWidget {
     return Container(
       width: AppTheme.filterWidth,
       padding: .all(AppTheme.containerPadding),
-      decoration: BoxDecoration(
-        borderRadius: .circular(AppTheme.radiusMedium),
-      ),
+      decoration: BoxDecoration(borderRadius: .circular(AppTheme.radiusMedium)),
       child: Column(
         mainAxisSize: .min,
         crossAxisAlignment: .start,
@@ -43,6 +42,10 @@ class FilterPanel extends StatelessWidget {
                 DropdownMenuEntry<SortingStrategy>(
                   label: option.displayName,
                   value: option,
+                  style: MenuItemButton.styleFrom(
+                    textStyle: AppTheme.textSmall(),
+                    foregroundColor: theme.onTertiary,
+                  ),
                 ),
             ],
           ),
@@ -63,6 +66,10 @@ class FilterPanel extends StatelessWidget {
                 DropdownMenuEntry<GeneralProductCategory>(
                   label: category.title,
                   value: category,
+                  style: MenuItemButton.styleFrom(
+                    textStyle: AppTheme.textSmall(),
+                    foregroundColor: theme.onTertiary,
+                  ),
                 ),
             ],
           ),

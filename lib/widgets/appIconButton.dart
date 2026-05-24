@@ -21,8 +21,8 @@ class AppIconButton extends StatelessWidget {
       icon: Icon(icon, size: AppTheme.iconLarge),
       iconAlignment: .end,
       style: ElevatedButton.styleFrom(
-        backgroundColor: colorTheme.primaryFixedDim,
-        foregroundColor: colorTheme.onPrimaryFixed,
+        backgroundColor: colorTheme.tertiary,
+        foregroundColor: colorTheme.onTertiary,
       ),
       onPressed: onPressed,
     );
