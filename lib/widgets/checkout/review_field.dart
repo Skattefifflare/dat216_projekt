@@ -46,32 +46,37 @@ class _ReviewFieldState extends State<ReviewField> {
               child: TextFormField(
                 controller: _addressController,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: AppTheme.colorScheme.outline, width: 2)
+                  ),
                   suffixIcon: !canEdit ? Icon(Icons.lock) : Icon(Icons.lock_open),
                 ),
                 readOnly: !canEdit,
               ),
             ),
-            Padding(padding: EdgeInsetsGeometry.only(left: AppTheme.paddingMedium)),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: canEdit
-                    ? AppTheme.colorScheme.primary
-                    : Colors.pink,
-              ),
-              onPressed: (() {
-                setState(() {
-                  if (canEdit) {
-                    widget.onSave(_addressController.text);
-                    canEdit = false;
-                  } else {
-                    canEdit = true;
-                  }
-                });
-              }),
-              child: Text(
-                canEdit ? "Spara" : "Ändra",
-                style: TextStyle(color: AppTheme.colorScheme.onPrimary),
+            Padding(padding: EdgeInsetsGeometry.only(left: AppTheme.paddingSmall)),
+            SizedBox(
+              width: 88,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: canEdit
+                      ? AppTheme.colorScheme.primary
+                      : AppTheme.colorScheme.tertiary,
+                ),
+                onPressed: (() {
+                  setState(() {
+                    if (canEdit) {
+                      widget.onSave(_addressController.text);
+                      canEdit = false;
+                    } else {
+                      canEdit = true;
+                    }
+                  });
+                }),
+                child: Text(
+                  canEdit ? "Spara" : "Ändra",
+                  style: TextStyle(color: AppTheme.colorScheme.onPrimary),
+                ),
               ),
             ),
           ],

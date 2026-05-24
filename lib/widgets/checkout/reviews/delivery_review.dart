@@ -43,7 +43,7 @@ class DeliveryReview extends StatelessWidget {
           width: 300,
         ),
         SizedBox(height: AppTheme.paddingMedium,),
-        Divider(thickness: 1),
+        Divider(thickness: AppTheme.strokeTiny),
         SizedBox(height: AppTheme.paddingSmall,),
         ReviewField(
           label: "Postkod",
@@ -55,7 +55,7 @@ class DeliveryReview extends StatelessWidget {
           width: 300,
         ),
         SizedBox(height: AppTheme.paddingMedium,),
-        Divider(thickness: 1),
+        Divider(thickness: AppTheme.strokeTiny),
         SizedBox(height: AppTheme.paddingSmall,),
         ReviewField(
           label: "Postadress",
@@ -66,7 +66,9 @@ class DeliveryReview extends StatelessWidget {
           },
           width: 300,
         ),
-        SizedBox(height: 35),
+        SizedBox(height: AppTheme.paddingMedium,),
+        Divider(thickness: AppTheme.strokeTiny),
+        SizedBox(height: AppTheme.paddingSmall,),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -41,7 +41,7 @@ class CheckoutCircle extends StatelessWidget {
   }
 
   Widget getCircleIcon(CircleState state, ColorScheme theme) {
-    if (state == CircleState.done) return Icon(color: theme.outline,size: 75, Icons.check);
+    if (state == CircleState.done) return Icon(color: theme.onPrimary,size: 75, Icons.check);
     return Center(child: Text("$step", style: AppTheme.textMediumSerif()));
   }
 

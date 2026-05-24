@@ -74,7 +74,7 @@ class AppTheme {
   static const edgePadding = paddingMedium;
   static const containerPadding = paddingMedium;
   static const contentMaxWidth = 960.0;
-
+  
   // Fonts
   static TextStyle textSmall({Color? color}) => GoogleFonts.inter(
     fontSize: 14,
@@ -130,6 +130,12 @@ class AppTheme {
     color: color,
   );
   
+  static TextStyle textGiantThick({Color? color}) => GoogleFonts.roboto(
+    fontSize: 48,
+
+    fontWeight: FontWeight.w700,
+    color: color,
+  );
   
 
 

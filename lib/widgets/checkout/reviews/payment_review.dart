@@ -1,5 +1,6 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
+import 'package:dat216_projekt/widgets/checkout/misc/checkout_panel.dart';
 import 'package:dat216_projekt/widgets/checkout/misc/vert_divide.dart';
 import 'package:dat216_projekt/widgets/checkout/misc/navigation_button.dart';
 import 'package:dat216_projekt/widgets/checkout/review_field.dart';
@@ -13,104 +14,99 @@ class PaymentReview extends StatelessWidget {
   Widget build(BuildContext context) {
     final creditCard = context.read<ImatDataHandler>().getCreditCard();
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+    Widget left = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          width: 500,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ReviewField(
-                label: "Korttyp",
-                intitialVal: creditCard.cardType,
-                onSave: (String value) {
-                  creditCard.cardType = value;
-                  context.read<ImatDataHandler>().setCreditCard(creditCard);
-                },
-                width: 300,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: AppTheme.paddingMedium,
-                  bottom: AppTheme.paddingMedium,
-                ),
-                child: SizedBox(width: 400, child: Divider(thickness: 2)),
-              ),
-              ReviewField(
-                label: "Innehavare",
-                intitialVal: creditCard.holdersName,
-                onSave: (String value) {
-                  creditCard.holdersName = value;
-                  context.read<ImatDataHandler>().setCreditCard(creditCard);
-                },
-                width: 300,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: AppTheme.paddingMedium,
-                  bottom: AppTheme.paddingMedium,
-                ),
-                child: SizedBox(width: 400, child: Divider(thickness: 2)),
-              ),
-              ReviewField(
-                label: "Kortnummer",
-                intitialVal: creditCard.cardNumber,
-                onSave: (String value) {
-                  creditCard.cardNumber = value;
-                  context.read<ImatDataHandler>().setCreditCard(creditCard);
-                },
-                width: 300,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: AppTheme.paddingMedium,
-                  bottom: AppTheme.paddingMedium,
-                ),
-                child: SizedBox(width: 400, child: Divider(thickness: 2)),
-              ),
-              Row(
-                children: [
-                  ReviewField(
-                    label: "Utgångsår",
-                    intitialVal: creditCard.validYear.toString(),
-                    onSave: (String value) {
-                      creditCard.validYear = int.parse(value);
-                      context.read<ImatDataHandler>().setCreditCard(creditCard);
-                    },
-                    width: 100,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: AppTheme.paddingMedium,
-                      right: AppTheme.paddingMedium,
-                    ),
-                    child: SizedBox(
-                      height: 60,
-                      child: VerticalDivider(thickness: 2),
-                    ),
-                  ),
-                  ReviewField(
-                    label: "Utgångsmånad",
-                    intitialVal: creditCard.validMonth.toString(),
-                    onSave: (String value) {
-                      creditCard.validMonth = int.parse(value);
-                      context.read<ImatDataHandler>().setCreditCard(creditCard);
-                    },
-                    width: 100,
-                  ),
-                ],
-              ),
-            ],
-          ),
+        SizedBox(height: AppTheme.paddingMedium,),
+        ReviewField(
+          label: "Korttyp",
+          intitialVal: creditCard.cardType,
+          onSave: (String value) {
+            creditCard.cardType = value;
+            context.read<ImatDataHandler>().setCreditCard(creditCard);
+          },
+          width: 300,
         ),
-        VertDivide(),
-        SizedBox(
-          width: 500,
-          child: Column(children: [NavigationButton(goesForward: false, width: 300,)]),
+        SizedBox(height: AppTheme.paddingMedium),
+        Divider(thickness: AppTheme.strokeTiny),
+        SizedBox(height: AppTheme.paddingSmall),
+        ReviewField(
+          label: "Innehavare   (för- och efternamn)",
+          intitialVal: creditCard.holdersName,
+          onSave: (String value) {
+            creditCard.holdersName = value;
+            context.read<ImatDataHandler>().setCreditCard(creditCard);
+          },
+          width: 300,
         ),
+        SizedBox(height: AppTheme.paddingMedium),
+        Divider(thickness: AppTheme.strokeTiny),
+        SizedBox(height: AppTheme.paddingSmall),
+        ReviewField(
+          label: "Kortnummer",
+          intitialVal: creditCard.cardNumber,
+          onSave: (String value) {
+            creditCard.cardNumber = value;
+            context.read<ImatDataHandler>().setCreditCard(creditCard);
+          },
+          width: 300,
+        ),
+        SizedBox(height: AppTheme.paddingMedium),
+        Divider(thickness: AppTheme.strokeTiny),
+        SizedBox(height: AppTheme.paddingSmall),
       ],
     );
+
+    Widget right = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: AppTheme.paddingMedium,),
+        ReviewField(
+          label: "Utgångsår   (4 siffror)",
+          intitialVal: creditCard.validYear.toString(),
+          onSave: (String value) {
+            creditCard.validYear = int.parse(value);
+            context.read<ImatDataHandler>().setCreditCard(creditCard);
+          },
+          width: 100,
+        ),
+        SizedBox(height: AppTheme.paddingMedium,),
+        Divider(thickness: AppTheme.strokeTiny),
+        SizedBox(height: AppTheme.paddingSmall,),
+        ReviewField(
+          label: "Utgångsmånad",
+          intitialVal: creditCard.validMonth.toString(),
+          onSave: (String value) {
+            creditCard.validMonth = int.parse(value);
+            context.read<ImatDataHandler>().setCreditCard(creditCard);
+          },
+          width: 100,
+        ),
+        SizedBox(height: AppTheme.paddingMedium,),
+        Divider(thickness: AppTheme.strokeTiny),
+        SizedBox(height: AppTheme.paddingSmall,),
+        ReviewField(
+          label: "Verifieringsnummer",
+          intitialVal: creditCard.verificationCode.toString(),
+          onSave: (String value) {
+            creditCard.verificationCode = int.parse(value);
+            context.read<ImatDataHandler>().setCreditCard(creditCard);
+          },
+          width: 100,
+        ),
+        SizedBox(height: AppTheme.paddingMedium,),
+        Divider(thickness: AppTheme.strokeTiny),
+        SizedBox(height: AppTheme.paddingSmall,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            NavigationButton(goesForward: false, width: 200),
+            NavigationButton(goesForward: true, width: 200),
+          ],
+        )
+      ],
+    );
+
+    return CheckoutPanel(leftPanel: left, rightPanel: right);
   }
 }

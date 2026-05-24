@@ -1,3 +1,5 @@
+import 'package:dat216_projekt/app_theme.dart';
+import 'package:dat216_projekt/model/internet_handler.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmationReview extends StatelessWidget {
@@ -5,6 +7,13 @@ class ConfirmationReview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(height: AppTheme.paddingMedium,),
+        Text("Tack för din beställning!", style: AppTheme.textGiantThick(),)
+      ],
+    );
   }
 }
