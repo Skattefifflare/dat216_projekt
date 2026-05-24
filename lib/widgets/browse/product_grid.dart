@@ -15,22 +15,31 @@ class ProductGrid extends StatelessWidget {
     final filterState = context.watch<FilterHandler>();
     var iMat = context.read<ImatDataHandler>();
 
+    final colorTheme = Theme.of(context).colorScheme;
+
     final displayProducts = filterState.match(iMat.selectProducts);
 
     return Container(
       alignment: Alignment.topCenter,
-      child: GridView.builder(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: AppTheme.productGridExtent,
-
-          mainAxisExtent: AppTheme.productCardHeight,
-          crossAxisSpacing: AppTheme.paddingSmall,
-          mainAxisSpacing: AppTheme.paddingSmall,
+      child: ScrollbarTheme(
+        data: ScrollbarThemeData(
+          thumbColor: .all(colorTheme.primary),
+          thickness: .all(10),
+          thumbVisibility: .all(true),
         ),
-        itemCount: max(0, displayProducts.length - 1),
-        itemBuilder: (context, index) {
-          return ProductCard(product: displayProducts[index]);
-        },
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: AppTheme.productGridExtent,
+            mainAxisExtent: AppTheme.productCardHeight,
+
+            crossAxisSpacing: AppTheme.paddingSmall,
+            mainAxisSpacing: AppTheme.paddingSmall,
+          ),
+          itemCount: max(0, displayProducts.length - 1),
+          itemBuilder: (context, index) {
+            return ProductCard(product: displayProducts[index]);
+          },
+        ),
       ),
     );
   }
