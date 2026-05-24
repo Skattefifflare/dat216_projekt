@@ -15,7 +15,6 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).colorScheme;
     final iMat = context.watch<ImatDataHandler>();
     final colorTheme = Theme.of(context).colorScheme;
 
@@ -32,7 +31,6 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
             onPressed: () => context.go('/browse'),
           ),
           Spacer(),
-          //TODO Search bar
           Spacer(),
           Stack(
             children: [
@@ -50,7 +48,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                 child: Container(
                   padding: .all(AppTheme.paddingTiny),
                   decoration: BoxDecoration(
-                    color: theme.tertiary,
+                    color: colorTheme.tertiary,
                     shape: .circle,
                     border: .all(
                       width: AppTheme.strokeMedium,
@@ -63,7 +61,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                         .items
                         .fold<double>(0, (sum, item) => sum + item.amount)
                         .toString(),
-                    style: AppTheme.textMediumThin(color: theme.onPrimary)
+                    style: AppTheme.textMediumThin(color: colorTheme.onPrimary),
                   ),
                 ),
               ),
@@ -76,7 +74,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
               width: AppTheme.profileMenuWidth,
               child: ProfileMenu(),
             ),
-          ),       
+          ),
         ],
       ),
     );

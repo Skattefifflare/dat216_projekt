@@ -17,18 +17,20 @@ class HeaderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
     List<Widget> content = [
-      Icon(icon, size: AppTheme.headerButton, color: theme.surface),
+      Icon(icon, size: AppTheme.headerButton, color: theme.primary),
     ];
 
     if (text != null) {
-      content.add(Text(text!, style: AppTheme.textLargeThick(color: theme.surface)));
+      content.add(
+        Text(text!, style: AppTheme.textLargeThick(color: theme.primary)),
+      );
     }
 
     return SizedBox(
       height: 82,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: theme.secondary,
+          backgroundColor: theme.onPrimary,
           shape: (text == null) ? CircleBorder() : null,
           padding: .all(AppTheme.paddingLarge),
         ),
