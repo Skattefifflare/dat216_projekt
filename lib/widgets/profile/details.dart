@@ -13,6 +13,7 @@ class Details extends StatefulWidget {
 class _DetailsState extends State<Details> {
   bool _isEditing = false;
 
+
   void _enableEditing() {
     setState(() {
       _isEditing = true;
@@ -31,7 +32,7 @@ class _DetailsState extends State<Details> {
 
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 600),
+        constraints: const BoxConstraints(maxWidth: 600,),
         child: Card(
           color: theme.surfaceContainerHighest,
           elevation: 0,
@@ -43,126 +44,138 @@ class _DetailsState extends State<Details> {
             padding: const EdgeInsets.all(AppTheme.paddingMedium),
             child: Column(
               children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    NameFieldWithButton(
-                      label: "Namn",
-                      hintTxt: "Hjördis Efternamnsson",
-                      enabled: _isEditing,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        NameFieldWithButton(
+                          label: "Namn",
+                          hintTxt: "Hjördis Efternamnsson",
+                          enabled: _isEditing,
+                        ),
+                        SizedBox(
+                          width: 250,
+                          child: Divider(
+                            thickness: AppTheme.strokeTiny,
+                            color: theme.secondary,
+                          ),
+                        ),
+                        NameFieldWithButton(
+                          label: "Telefonnummer",
+                          hintTxt: "+46 999 999 99 99",
+                          enabled: _isEditing,
+                        ),
+                        SizedBox(
+                          width: 250,
+                          child: Divider(
+                            thickness: AppTheme.strokeTiny,
+                            color: theme.secondary,
+                          ),
+                        ),
+                        NameFieldWithButton(
+                          label: "E-post",
+                          hintTxt: "example@gmail.com",
+                          enabled: _isEditing,
+                        ),
+                        SizedBox(
+                          width: 250,
+                          child: Divider(
+                            thickness: AppTheme.strokeTiny,
+                            color: theme.secondary,
+                          ),
+                        ),
+                        PasswordField(
+                          labelText: "Lösenord",
+                          enabled: _isEditing,
+                          hintTxt: "******",
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      width: 250,
-                      child: Divider(
-                        thickness: AppTheme.strokeTiny,
-                        color: theme.secondary,
+                    const SizedBox(width: AppTheme.paddingLarge),
+                    Container(
+                      width: AppTheme.strokeSmall,
+                      color: theme.secondary,
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: AppTheme.paddingMedium,
                       ),
+                      height: 350,
                     ),
-                    NameFieldWithButton(
-                      label: "Telefonnummer",
-                      hintTxt: "+46 999 999 99 99",
-                      enabled: _isEditing,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        NameFieldWithButton(
+                          label: "Kortnummer",
+                          hintTxt: "9999 9999 9999 9999",
+                          enabled: _isEditing,
+                        ),
+                        const SizedBox(height: AppTheme.paddingSmall),
+                        SizedBox(
+                          width: 250,
+                          child: Divider(
+                            thickness: AppTheme.strokeTiny,
+                            color: theme.secondary,
+                          ),
+                        ),
+                        NameFieldWithButton(
+                          label: "Utgångsdatum",
+                          hintTxt: "12/34",
+                          enabled: _isEditing,
+                        ),
+                        const SizedBox(height: AppTheme.paddingSmall),
+                        SizedBox(
+                          width: 250,
+                          child: Divider(
+                            thickness: AppTheme.strokeTiny,
+                            color: theme.secondary,
+                          ),
+                        ),
+                        NameFieldWithButton(
+                          label: "CVC",
+                          hintTxt: "420",
+                          enabled: _isEditing,
+                        ),
+                        const SizedBox(height: AppTheme.paddingSmall),
+                        SizedBox(
+                          width: 250,
+                          child: Divider(
+                            thickness: AppTheme.strokeTiny,
+                            color: theme.secondary,
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      width: 250,
-                      child: Divider(
-                        thickness: AppTheme.strokeTiny,
-                        color: theme.secondary,
-                      ),
-                    ),
-                    NameFieldWithButton(
-                      label: "E-post",
-                      hintTxt: "example@gmail.com",
-                      enabled: _isEditing,
-                    ),
-                    SizedBox(
-                      width: 250,
-                      child: Divider(
-                        thickness: AppTheme.strokeTiny,
-                        color: theme.secondary,
-                      ),
-                    ),
-                    PasswordField(labelText: "Lösenord", enabled: _isEditing, hintTxt: "******"),
                   ],
                 ),
-                const SizedBox(width: AppTheme.paddingLarge),
-                Container(
-                  width: AppTheme.strokeSmall,
-                  color: theme.secondary,
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: AppTheme.paddingMedium,
-                  ),
-                  height: 350,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                const SizedBox(height: AppTheme.paddingLarge),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    NameFieldWithButton(
-                      label: "Kortnummer",
-                      hintTxt: "9999 9999 9999 9999",
-                      enabled: _isEditing,
-                    ),
-                    const SizedBox(height: AppTheme.paddingSmall),
-                    SizedBox(
-                      width: 250,
-                      child: Divider(
-                        thickness: AppTheme.strokeTiny,
-                        color: theme.secondary,
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: theme.secondary,
+                        foregroundColor: theme.onSecondary,
                       ),
+                      onPressed: _isEditing ? null : _enableEditing,
+                      child: const Text('Ändra uppgifter'),
                     ),
-                    NameFieldWithButton(
-                      label: "Utgångsdatum",
-                      hintTxt: "12/34",
-                      enabled: _isEditing,
-                    ),
-                    const SizedBox(height: AppTheme.paddingSmall),
-                    SizedBox(
-                      width: 250,
-                      child: Divider(
-                        thickness: AppTheme.strokeTiny,
-                        color: theme.secondary,
+                    const SizedBox(width: AppTheme.paddingMedium),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: theme.secondary,
+                        foregroundColor: theme.onSecondary,
                       ),
-                    ),
-                    NameFieldWithButton(
-                      label: "CVC",
-                      hintTxt: "420",
-                      enabled: _isEditing,
-                    ),
-                    const SizedBox(height: AppTheme.paddingSmall),
-                    SizedBox(
-                      width: 250,
-                      child: Divider(
-                        thickness: AppTheme.strokeTiny,
-                        color: theme.secondary,
-                      ),
+                      onPressed: _isEditing ? _saveUpdates : null,
+                      child: const Text('Spara uppgifter'),
                     ),
                   ],
                 ),
               ],
             ),
-            const SizedBox(height: AppTheme.paddingLarge),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: _enableEditing,
-                  child: const Text('Ändra uppgifter'),
-                ),
-                const SizedBox(width: AppTheme.paddingMedium),
-                ElevatedButton(
-                  onPressed: _isEditing ? _saveUpdates : null,
-                  child: const Text('Spara uppgifter'),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+          ),
         ),
       ),
     );

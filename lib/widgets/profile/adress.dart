@@ -46,8 +46,7 @@ class _AdressState extends State<Adress> {
     final theme = Theme.of(context).colorScheme;
 
     return Container(
-      width: 400,
-      constraints: const BoxConstraints(minHeight: 360, maxHeight: 560),
+      constraints: const BoxConstraints(maxHeight: 450, maxWidth: 399),
       decoration: BoxDecoration(
         color: Colors.grey.shade200,
         borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
@@ -90,7 +89,7 @@ class _AdressState extends State<Adress> {
                       style: TextStyle(color: theme.onSurfaceVariant),
                     ),
                   )
-                  //Scrollbar för adresser
+                //Scrollbar för adresser
                 : ScrollbarTheme(
                     data: ScrollbarThemeData(
                       thumbColor: .all(theme.primary),
@@ -104,92 +103,145 @@ class _AdressState extends State<Adress> {
                       trackVisibility: true,
                       child: ListView.builder(
                         controller: _scrollController,
-                        padding: const EdgeInsets.only(right: AppTheme.paddingMedium),
+                        padding: const EdgeInsets.only(
+                          right: AppTheme.paddingMedium,
+                        ),
                         itemCount: _controllers.length,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.only(bottom: AppTheme.paddingSmall),
+                            padding: const EdgeInsets.only(
+                              bottom: AppTheme.paddingSmall,
+                            ),
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(24),
-                                border: Border.all(color: theme.primary.withValues(alpha: 0.25), width: AppTheme.strokeTiny),
+                                border: Border.all(
+                                  color: theme.primary.withValues(alpha: 0.25),
+                                  width: AppTheme.strokeTiny,
+                                ),
                               ),
-                              padding: const EdgeInsets.all(AppTheme.paddingMedium),
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 8,
+                                horizontal: AppTheme.paddingMedium,
+                              ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  TextField(
-                                    controller: _titleControllers[index],
-                                    decoration: InputDecoration(
-                                      hintText: 't.ex Hemma',
-                                      filled: true,
-                                      fillColor: Colors.grey.shade100,
-                                      contentPadding: const EdgeInsets.symmetric(
-                                        vertical: AppTheme.paddingSmall,
-                                        horizontal: AppTheme.paddingMedium,
-                                      ),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(20),
-                                        borderSide: BorderSide(color: theme.primary.withValues(alpha: 0.35), width: AppTheme.strokeTiny),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(20),
-                                        borderSide: BorderSide(color: theme.primary.withValues(alpha: 0.25), width: AppTheme.strokeTiny),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(20),
-                                        borderSide: BorderSide(color: theme.primary, width: AppTheme.strokeSmall),
+                                  SizedBox(
+                                    width: 250,
+                                    height: 33,
+                                    child: TextField(
+                                      controller: _titleControllers[index],
+                                      decoration: InputDecoration(
+                                        hintText: 't.ex Hemma',
+                                        filled: true,
+                                        fillColor: Colors.grey.shade100,
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                              vertical: 4,
+                                              horizontal:
+                                                  AppTheme.paddingMedium,
+                                            ),
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            20,
+                                          ),
+                                          borderSide: BorderSide(
+                                            color: theme.primary.withValues(
+                                              alpha: 0.35,
+                                            ),
+                                            width: AppTheme.strokeTiny,
+                                          ),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            20,
+                                          ),
+                                          borderSide: BorderSide(
+                                            color: theme.primary.withValues(
+                                              alpha: 0.25,
+                                            ),
+                                            width: AppTheme.strokeTiny,
+                                          ),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            20,
+                                          ),
+                                          borderSide: BorderSide(
+                                            color: theme.primary,
+                                            width: AppTheme.strokeSmall,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                   const SizedBox(height: AppTheme.paddingSmall),
                                   Row(
-                                  children: [
-                                    Expanded(
-                                      child: TextField(
-                                        controller: _controllers[index],
-                                        decoration: InputDecoration(
-                                          hintText: 'Adress',
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(24),
-                                            borderSide: BorderSide(color: theme.primary, width: AppTheme.strokeTiny),
-                                          ),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(24),
-                                            borderSide: BorderSide(color: theme.primary.withOpacity(0.5), width: AppTheme.strokeTiny),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(24),
-                                            borderSide: BorderSide(color: theme.primary, width: AppTheme.strokeMedium),
+                                    children: [
+                                      SizedBox(
+                                        width: 250,
+                                        height: 33,
+                                        child: TextField(
+                                          controller: _controllers[index],
+                                          decoration: InputDecoration(
+                                            hintText: 'Adress',
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(24),
+                                              borderSide: BorderSide(
+                                                color: theme.primary,
+                                                width: AppTheme.strokeTiny,
+                                              ),
+                                            ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(24),
+                                              borderSide: BorderSide(
+                                                color: theme.primary,
+                                                width: AppTheme.strokeTiny,
+                                              ),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(24),
+                                              borderSide: BorderSide(
+                                                color: theme.primary,
+                                                width: AppTheme.strokeMedium,
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    const SizedBox(width: AppTheme.paddingSmall),
-                                    // Ta bort-knapp
-                                    IconButton(
-                                      icon: Image.asset(
-                                        'assets/images/Trashcan.jpg',
-                                        width: 20,
-                                        height: 20,
+                                      const SizedBox(
+                                        width: AppTheme.paddingSmall,
                                       ),
-                                      style: IconButton.styleFrom(
-                                        backgroundColor: theme.primary,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                                      // Ta bort-knapp
+                                      IconButton(
+                                        icon: Image.asset(
+                                          'assets/images/Trashcan.jpg',
+                                          width: 20,
+                                          height: 20,
                                         ),
+                                        style: IconButton.styleFrom(
+                                          backgroundColor: theme.primary,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              AppTheme.radiusMedium,
+                                            ),
+                                          ),
+                                        ),
+                                        onPressed: () => _removeAdress(index),
+                                        tooltip: 'Ta bort adress',
                                       ),
-                                      onPressed: () => _removeAdress(index),
-                                      tooltip: 'Ta bort adress',
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
                           );
                         },
                       ),
@@ -199,5 +251,5 @@ class _AdressState extends State<Adress> {
         ],
       ),
     );
-  } 
+  }
 }

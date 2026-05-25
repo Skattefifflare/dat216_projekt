@@ -68,7 +68,7 @@ class AppTheme {
   static const profileMenuWidth = 300.0;
 
   // Profile - Picture
-  static const profilePictureSize = 84.0;
+  static const profilePictureSize = 70.0;
 
   // Global
   static const edgePadding = paddingMedium;
