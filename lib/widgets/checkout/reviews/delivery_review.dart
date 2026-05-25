@@ -1,18 +1,32 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
+import 'package:dat216_projekt/widgets/checkout/checkout_navigation.dart';
 import 'package:dat216_projekt/widgets/checkout/misc/checkout_panel.dart';
 import 'package:dat216_projekt/widgets/checkout/misc/navigation_button.dart';
 import 'package:dat216_projekt/widgets/checkout/review_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class DeliveryReview extends StatelessWidget {
+class DeliveryReview extends StatefulWidget {
   const DeliveryReview({super.key});
 
   @override
+  State<DeliveryReview> createState() => _DeliveryReviewState();
+}
+
+class _DeliveryReviewState extends State<DeliveryReview> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // set initial delivery date in the navigation provider
+      context.read<CheckoutNavigation>().setDeliveryDate(DateTime.now());
+    });
+  }
+  @override
   Widget build(BuildContext context) {
     final customer = context.read<ImatDataHandler>().getCustomer();
-
+    CheckoutNavigation navigation = context.read<CheckoutNavigation>();
     Widget left = Column(
       children: [
         Text(
@@ -24,7 +38,9 @@ class DeliveryReview extends StatelessWidget {
           initialDate: DateTime.now(),
           firstDate: DateTime.now(),
           lastDate: DateTime(DateTime.now().year + 1),
-          onDateChanged: (context) {},
+          onDateChanged: (DateTime date) {
+            navigation.setDeliveryDate(date);
+          },
         ),
       ],
     );
