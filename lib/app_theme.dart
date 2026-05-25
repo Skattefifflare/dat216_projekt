@@ -56,7 +56,7 @@ class AppTheme {
 
   // Cart
   static const cartWidth = 600.0;
-  static const cartCardHeight = 150.0;
+  static const cartCardHeight = 120.0;
 
   // Add to Cart
   static const addToCartAmountWidth = 80.0;
