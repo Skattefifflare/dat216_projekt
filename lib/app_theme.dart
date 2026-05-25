@@ -24,8 +24,6 @@ class AppTheme {
   static const radiusMedium = 8.0;
   static const radiusLarge = 16.0;
 
-
-
   // Icon
   static const iconLarge = 32.0;
 
@@ -57,7 +55,7 @@ class AppTheme {
   static const filterWidth = 260.0;
 
   // Cart
-  static const cartWidth = 500.0;
+  static const cartWidth = 600.0;
   static const cartCardHeight = 150.0;
 
   // Add to Cart
@@ -74,15 +72,15 @@ class AppTheme {
   static const edgePadding = paddingMedium;
   static const containerPadding = paddingMedium;
   static const contentMaxWidth = 960.0;
-  
+
   // Fonts
   static TextStyle textSmall({Color? color}) => GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: color,
   );
-  
-  static TextStyle textMediumSerif({Color? color}) =>GoogleFonts.ptSerif(
+
+  static TextStyle textMediumSerif({Color? color}) => GoogleFonts.ptSerif(
     fontSize: 30,
     fontWeight: FontWeight.w500,
     color: color,
@@ -102,7 +100,7 @@ class AppTheme {
     fontWeight: FontWeight.w500,
     color: color,
   );
-  
+
   static TextStyle textLargeNormal({Color? color}) => GoogleFonts.inter(
     fontSize: 24,
     fontWeight: FontWeight.w500,
@@ -129,42 +127,39 @@ class AppTheme {
     fontWeight: FontWeight.w500,
     color: color,
   );
-  
+
   static TextStyle textGiantThick({Color? color}) => GoogleFonts.roboto(
     fontSize: 48,
 
     fontWeight: FontWeight.w700,
     color: color,
   );
-  
+
   static TextStyle textLogo({Color? color}) => GoogleFonts.roboto(
     fontSize: 70,
     fontWeight: FontWeight.w700,
     color: color,
   );
 
-
   static ColorScheme colorScheme = ColorScheme.fromSeed(
     seedColor: Color.fromARGB(255, 45, 106, 79),
     brightness: Brightness.light,
 
-    primary: Color.fromARGB(255, 45, 106, 79), 
-    onPrimary: Color.fromARGB(255, 255, 253, 253), 
+    primary: Color.fromARGB(255, 45, 106, 79),
+    onPrimary: Color.fromARGB(255, 255, 253, 253),
 
-    secondary: Color.fromARGB(255, 71, 125, 100), 
-    onSecondary: Color.fromARGB(255, 255, 253, 253), 
+    secondary: Color.fromARGB(255, 71, 125, 100),
+    onSecondary: Color.fromARGB(255, 255, 253, 253),
 
     tertiary: Color.fromARGB(255, 83, 183, 136),
     onTertiary: Color.fromARGB(255, 255, 253, 253),
 
-    surface: Color.fromARGB(255, 248, 250, 248), 
+    surface: Color.fromARGB(255, 248, 250, 248),
     onSurface: Color.fromARGB(255, 27, 46, 34),
     surfaceContainer: Color.fromARGB(255, 255, 253, 253),
     outline: Color.fromARGB(255, 224, 234, 226),
 
-    error: Colors.redAccent, 
-    onError: Colors.orange, 
+    error: Colors.redAccent,
+    onError: Colors.orange,
   );
 }
-
-

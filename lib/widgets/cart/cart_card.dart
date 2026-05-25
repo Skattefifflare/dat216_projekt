@@ -17,40 +17,55 @@ class CartCard extends StatelessWidget {
     return Card(
       color: Colors.white,
       clipBehavior: .hardEdge,
-      child: Padding(
-        padding: const .all(AppTheme.paddingSmall),
-        child: Column(
+      child: SizedBox(
+        height: AppTheme.cartCardHeight,
+        child: Row(
           children: [
-            Row(
-              mainAxisAlignment: .spaceBetween,
-              children: [
-                Text(item.product.name, style: AppTheme.textHuge()),
-                Text(
-                  '${item.product.price} ${item.product.unit}',
-                  style: AppTheme.textLargeNormal(),
-                ),
-              ],
+            AspectRatio(
+              aspectRatio: 1,
+              child: context.read<ImatDataHandler>().getImage(item.product),
             ),
-            SizedBox(height: AppTheme.paddingMedium),
-            Row(
-              mainAxisAlignment: .spaceBetween,
-              children: [
-                SizedBox(
-                  height: AppTheme.addToCartButtonHeight,
-                  width: AppTheme.addToCartButtonHeight,
-                  child: IconButton(
-                    icon: Icon(Icons.delete_outline),
-                    color: colorTheme.onTertiary,
-                    style: IconButton.styleFrom(
-                      backgroundColor: colorTheme.tertiary,
+            Expanded(
+              child: Padding(
+                padding: .all(AppTheme.paddingSmall),
+                child: Column(
+                  mainAxisAlignment: .spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisAlignment: .spaceBetween,
+                      children: [
+                        Text(item.product.name, style: AppTheme.textHuge()),
+                        Text(
+                          '${item.product.price} ${item.product.unit}',
+                          style: AppTheme.textLargeNormal(),
+                        ),
+                      ],
                     ),
-                    onPressed: () {
-                      context.read<ImatDataHandler>().shoppingCartRemove(item);
-                    },
-                  ),
+                    Row(
+                      mainAxisAlignment: .spaceBetween,
+                      children: [
+                        SizedBox(
+                          height: AppTheme.addToCartButtonHeight,
+                          width: AppTheme.addToCartButtonHeight,
+                          child: IconButton(
+                            icon: Icon(Icons.delete_outline),
+                            color: colorTheme.onTertiary,
+                            style: IconButton.styleFrom(
+                              backgroundColor: colorTheme.tertiary,
+                            ),
+                            onPressed: () {
+                              context
+                                  .read<ImatDataHandler>()
+                                  .shoppingCartRemove(item);
+                            },
+                          ),
+                        ),
+                        AddToCart(product: item.product),
+                      ],
+                    ),
+                  ],
                 ),
-                AddToCart(product: item.product),
-              ],
+              ),
             ),
           ],
         ),

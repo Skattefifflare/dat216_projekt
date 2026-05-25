@@ -54,7 +54,7 @@ class _OverlayBaseState extends State<OverlayBase> {
           ),
           AnimatedPositioned(
             top: AppTheme.headerHeight,
-            right: _visible ? 0 : -AppTheme.cartWidth,
+            right: _visible ? 0 : -widget.width,
             curve: Curves.easeInOutQuad,
             duration: const Duration(milliseconds: 300),
             child: Container(
