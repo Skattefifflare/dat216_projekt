@@ -41,6 +41,7 @@ class AppTheme {
   static const categoryCardWidth = contentMaxWidth / 3 - categoryCardMargin * 2;
   static const categoryCardHeight = 200.0;
   static const categoryCardPadding = paddingMediumSmall;
+  static const categoryCardIconSize = 24.0;
 
   // Browse - Grid
   static const productGridExtent = 340.0;
