@@ -23,8 +23,14 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       padding: .all(AppTheme.headerPadding),
       child: Row(
         children: [
-          //TODO Logo
-          Placeholder(fallbackWidth: 120),
+          const SizedBox(width: AppTheme.paddingMedium),
+          Image.asset(
+            'assets/images/logo.png',
+            height: AppTheme.headerHeight - AppTheme.headerPadding * 2,
+          ),
+          const SizedBox(width: AppTheme.paddingSmall),
+          Text("iMat", style: AppTheme.textLogo(color: colorTheme.onPrimary),),
+          const SizedBox(width: AppTheme.paddingMedium),
           HeaderButton(
             icon: Icons.shelves,
             text: 'Handla nu',

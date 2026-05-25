@@ -137,6 +137,11 @@ class AppTheme {
     color: color,
   );
   
+  static TextStyle textLogo({Color? color}) => GoogleFonts.roboto(
+    fontSize: 70,
+    fontWeight: FontWeight.w700,
+    color: color,
+  );
 
 
   static ColorScheme colorScheme = ColorScheme.fromSeed(
