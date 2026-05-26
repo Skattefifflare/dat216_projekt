@@ -17,7 +17,6 @@ class BaseView extends StatelessWidget {
         padding: const .all(AppTheme.edgePadding),
         child: navigationShell,
       ),
-      bottomNavigationBar: Footer(),
     );
   }
 }

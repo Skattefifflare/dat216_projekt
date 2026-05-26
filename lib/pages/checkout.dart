@@ -36,25 +36,21 @@ class _CheckoutState extends State<Checkout> {
 
     return Column(
       children: [
-        SizedBox(height: AppTheme.paddingLarge),
+        SizedBox(height: AppTheme.paddingMedium),
         Center(
           child: CheckoutNumbers(
             currentStep: nav.currentStep,
           ),
         ),
-        SizedBox(height: AppTheme.paddingLarge),
+        SizedBox(height: AppTheme.paddingMedium),
         Container(
-          width: 1200,
-          height: 550,
+          width: AppTheme.contentMaxWidth,
+          height: 500,
           child: Card(
             
             child: Column(
               children: [
-                SizedBox(height: AppTheme.paddingMedium),
-                Text(
-                  "Steg ${nav.currentStep} av 4",
-                  style: TextStyle(fontSize: 20),
-                ),
+                SizedBox(height: AppTheme.paddingMedium),               
                 getCurrentTab(nav.currentStep),
               ],
             ),

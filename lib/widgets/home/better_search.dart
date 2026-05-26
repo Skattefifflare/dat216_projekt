@@ -1,9 +1,11 @@
+import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class BetterSearch extends StatefulWidget {
-  const BetterSearch({super.key});
+  final bool showSuggestions;
+  const BetterSearch({super.key, required this.showSuggestions});
 
   @override
   State<BetterSearch> createState() => _BetterSearchState();
@@ -18,7 +20,7 @@ class _BetterSearchState extends State<BetterSearch> {
     _overlayEntry?.remove();
     _overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
-        width: 960,
+        width: AppTheme.contentMaxWidth,
         child: CompositedTransformFollower(
           link: _layerLink,
           showWhenUnlinked: false,
@@ -38,13 +40,15 @@ class _BetterSearchState extends State<BetterSearch> {
 
   void change(String? value) {
     setState(() {});
-    if (value == null || value.isEmpty) {
+    if (!widget.showSuggestions || value == null || value.isEmpty) {
       _overlayEntry?.remove();
       _overlayEntry = null;
     } else {
       _showOverlay();
     }
   }
+
+  void onSearch(String query) {}
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +64,7 @@ class _BetterSearchState extends State<BetterSearch> {
                 onChanged: (value) {
                   change(value);
                 },
+                onSubmitted: (value) => onSearch(value),
                 decoration: InputDecoration(
                   hintText: 'Sök efter produkter här',
                   prefixIcon: Icon(Icons.search),

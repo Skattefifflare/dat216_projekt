@@ -23,20 +23,36 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       padding: .all(AppTheme.headerPadding),
       child: Row(
         children: [
-          const SizedBox(width: AppTheme.paddingMedium),
-          Image.asset(
-            'assets/images/logo.png',
-            height: AppTheme.headerHeight - AppTheme.headerPadding * 2,
+          GestureDetector(
+            behavior: .opaque,
+            onTap: () => context.go('/'),
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/images/logo.png',
+                    height: AppTheme.headerHeight - AppTheme.headerPadding * 2,
+                  ),
+                  const SizedBox(width: AppTheme.paddingSmall),
+                  Baseline(
+                    baselineType: TextBaseline.alphabetic,
+                    baseline: AppTheme.headerHeight / 2,
+                    child: Text(
+                      "iMat",
+                      style: AppTheme.textLogo(color: colorTheme.onPrimary),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
-          const SizedBox(width: AppTheme.paddingSmall),
-          Text("iMat", style: AppTheme.textLogo(color: colorTheme.onPrimary),),
           const SizedBox(width: AppTheme.paddingMedium),
           HeaderButton(
             icon: Icons.shelves,
             text: 'Handla nu',
             onPressed: () => context.go('/browse'),
           ),
-          Spacer(),
           Spacer(),
           Stack(
             children: [

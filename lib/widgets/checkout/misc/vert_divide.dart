@@ -11,7 +11,7 @@ class VertDivide extends StatelessWidget {
         left: AppTheme.paddingMedium,
         right: AppTheme.paddingMedium,
       ),
-      child: SizedBox(height: 460, child: VerticalDivider(width: 2)),
+      child: SizedBox(height: 450, child: VerticalDivider(width: 2)),
     );
   }
 }

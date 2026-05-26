@@ -17,7 +17,10 @@ class _ConfirmationReviewState extends State<ConfirmationReview> {
   @override
   void initState() {
     super.initState();
-    //InternetHandler.placeOrder();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      context.read<ImatDataHandler>().placeOrder();
+    });
   }
 
   @override

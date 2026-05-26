@@ -1,8 +1,9 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
+import 'package:dat216_projekt/widgets/cart/cart_card.dart';
 import 'package:dat216_projekt/widgets/checkout/misc/checkout_panel.dart';
 import 'package:dat216_projekt/widgets/checkout/misc/navigation_button.dart';
-import 'package:dat216_projekt/widgets/checkout/review_card.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +18,7 @@ class CartReview extends StatelessWidget {
     Widget left = ListView.builder(
       itemCount: cart.items.length,
       itemBuilder: (context, index) {
-        return ReviewCard(item: cart.items[index]);
+        return CartCard(item: cart.items[index]);
       },
     );
 
@@ -26,7 +27,7 @@ class CartReview extends StatelessWidget {
       children: [
         Column(
           children: [
-            Text("Sammanfattning:", style: AppTheme.textMediumSerif()),
+            Text("Sammanfattning", style: AppTheme.textMediumSerif()),
             Divider(thickness: 1),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,7 +42,7 @@ class CartReview extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: AppTheme.paddingMedium,),
+            SizedBox(height: AppTheme.paddingMedium),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -49,7 +50,7 @@ class CartReview extends StatelessWidget {
                 Text("Gratis", style: AppTheme.textMediumNormal()),
               ],
             ),
-            SizedBox(height: AppTheme.paddingMedium,),
+            SizedBox(height: AppTheme.paddingMedium),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -57,9 +58,9 @@ class CartReview extends StatelessWidget {
                 Text("____", style: AppTheme.textMediumNormal()),
               ],
             ),
-            SizedBox(height: AppTheme.paddingMedium,),
+            SizedBox(height: AppTheme.paddingMedium),
             Divider(thickness: 1),
-            SizedBox(height: AppTheme.paddingHuge,),
+            SizedBox(height: AppTheme.paddingHuge),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -72,12 +73,15 @@ class CartReview extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
+              children: [Text("inkl. moms", style: AppTheme.textSmall())],
+            ),
+            SizedBox(height: AppTheme.paddingHuge+4),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text("inkl. moms", style: AppTheme.textSmall(),)
+                NavigationButton(goesForward: true, width: 200),
               ],
             ),
-            SizedBox(height: AppTheme.paddingHuge,),
-            NavigationButton(goesForward: true, width: 300)
           ],
         ),
       ],
