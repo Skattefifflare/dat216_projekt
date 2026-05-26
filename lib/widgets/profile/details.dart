@@ -180,7 +180,7 @@ class _DetailsState extends State<Details> {
                     margin: const EdgeInsets.symmetric(
                       horizontal: AppTheme.paddingMedium,
                     ),
-                    height: 350,
+                    height: 410,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -253,7 +253,7 @@ class _DetailsState extends State<Details> {
                     margin: const EdgeInsets.symmetric(
                       horizontal: AppTheme.paddingMedium,
                     ),
-                    height: 350,
+                    height: 410,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
