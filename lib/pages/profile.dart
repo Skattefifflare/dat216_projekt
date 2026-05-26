@@ -1,10 +1,9 @@
 import 'package:dat216_projekt/app_assets.dart';
 import 'package:dat216_projekt/app_theme.dart';
-import 'package:dat216_projekt/widgets/profile/adress.dart';
 import 'package:dat216_projekt/widgets/profile/details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
-
+// import 'package:flutter/widgets/profile/Soil.dart';
 class Profile extends StatelessWidget {
   @Preview(name: 'My Sample Text')
   const Profile({super.key});
@@ -22,7 +21,7 @@ class Profile extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                color: theme.primary,
+                color: theme.secondary,
                 width: AppTheme.strokeMedium,
               ),
             ),
@@ -44,7 +43,6 @@ class Profile extends StatelessWidget {
                 children: [
                   const Details(),
                    SizedBox(width: isNarrow ? 0 : AppTheme.paddingLarge, height: isNarrow ? AppTheme.paddingLarge : 0),
-                   const Adress(),
                 ],
               );
             },
