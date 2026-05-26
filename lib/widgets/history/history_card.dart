@@ -22,7 +22,6 @@ class _HistoryCardState extends State<HistoryCard> {
     DateTime formattedDate = DateTime.fromMillisecondsSinceEpoch(widget.date);
 
     return Container(
-      height: 100,
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(

@@ -13,25 +13,12 @@ class _HistoryState extends State<History> {
   final GlobalKey<HistoryListState> _historyListKey =
       GlobalKey<HistoryListState>();
   final ScrollController _scrollController = ScrollController();
-  int currentPage = 0;
-  int itemsPerPage = 5;
+
   int orderCount = 0;
   bool isAscending = false;
 
-  void _movePage(int delta) {
-    setState(() {
-      currentPage += delta;
-      _scrollController.animateTo(
-        currentPage * 580,
-        duration: const Duration(milliseconds: 100),
-        curve: Curves.easeInOut,
-      );
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    int totalPages = (orderCount / itemsPerPage).ceil();
     return Column(
       children: [
         Text("Historik", style: TextStyle(fontSize: AppTheme.headerHeight)),
@@ -40,8 +27,11 @@ class _HistoryState extends State<History> {
             setState(() {
               isAscending = !isAscending;
               _historyListKey.currentState?.sortOrders(isAscending);
-              _movePage(-currentPage);
-              currentPage = 0;
+              _scrollController.animateTo(
+                _scrollController.position.minScrollExtent,
+                curve: Curves.easeOut,
+                duration: const Duration(milliseconds: 500),
+              );
             });
           },
           icon: Icon(isAscending ? Icons.arrow_upward : Icons.arrow_downward),
@@ -58,10 +48,9 @@ class _HistoryState extends State<History> {
           child: ScrollConfiguration(
             behavior: ScrollConfiguration.of(
               context,
-            ).copyWith(scrollbars: false),
+            ).copyWith(scrollbars: true),
             child: SingleChildScrollView(
               controller: _scrollController,
-              physics: const NeverScrollableScrollPhysics(),
               child: HistoryList(
                 key: _historyListKey,
                 onCountChanged: (count) {
@@ -72,27 +61,6 @@ class _HistoryState extends State<History> {
               ),
             ),
           ),
-        ),
-
-        const SizedBox(height: 20),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.arrow_back_ios),
-
-              onPressed: currentPage > 0 ? () => _movePage(-1) : null,
-            ),
-            Text("Sida ${currentPage + 1} av $totalPages"),
-            IconButton(
-              icon: const Icon(Icons.arrow_forward_ios),
-
-              onPressed: currentPage < totalPages - 1
-                  ? () => _movePage(1)
-                  : null,
-            ),
-          ],
         ),
       ],
     );
