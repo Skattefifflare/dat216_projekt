@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
       children: [
         HomeText(),
         SizedBox(height: AppTheme.paddingLarge),
-        BetterSearch(),
+        BetterSearch(showSuggestions: true,),
         SizedBox(height: AppTheme.paddingLarge),
         CategoryGrid(),
       ],
