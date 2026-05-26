@@ -1,33 +1,20 @@
 import 'dart:math';
 
 import 'package:dat216_projekt/model/imat/product.dart';
+import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:flutter/material.dart';
 
 class FilterHandler extends ChangeNotifier {
   var _sortingStrategy = SortingStrategy.alphabetical;
   var _category = GeneralProductCategory.ALL;
+  var _searchString = '';
+  var _onlyFavorites = false;
 
   var minPrice = 0.0;
   var maxPrice = 0.0;
   var _currentPrice = 0.0;
 
   Set<String> labels = {};
-
-  var _searchString = '';
-
-  void reset() {
-    _category = GeneralProductCategory.ALL;
-    _currentPrice = maxPrice;
-    labels = {};
-    _searchString = '';
-  }
-
-  SortingStrategy get sortingStrategy => _sortingStrategy;
-  set sortingStrategy(SortingStrategy strategy) {
-    _sortingStrategy = strategy;
-
-    notifyListeners();
-  }
 
   GeneralProductCategory get category => _category;
   set category(GeneralProductCategory category) {
@@ -37,15 +24,65 @@ class FilterHandler extends ChangeNotifier {
   }
 
   double get currentPrice => _currentPrice;
+
   set currentPrice(double price) {
     _currentPrice = price;
 
     notifyListeners();
   }
 
+  bool get onlyFavorites => _onlyFavorites;
+
+  set onlyFavorites(bool value) {
+    _onlyFavorites = value;
+
+    notifyListeners();
+  }
+
   String get searchString => _searchString;
+
   set searchString(String string) {
     _searchString = string;
+
+    notifyListeners();
+  }
+
+  SortingStrategy get sortingStrategy => _sortingStrategy;
+
+  set sortingStrategy(SortingStrategy strategy) {
+    _sortingStrategy = strategy;
+
+    notifyListeners();
+  }
+
+  List<Product> match(ImatDataHandler iMat) {
+    final products = iMat.products.where((product) {
+      return product.price <= currentPrice && // Price
+          (!onlyFavorites || iMat.isFavorite(product)) && // Favorite
+          category.subCategories.contains(product.category) && // Categories
+          product.activeLabels.containsAll(labels) && // Food labels
+          product.name.toLowerCase().contains(
+            searchString.toLowerCase(),
+          ); // Search
+    }).toList();
+    products.sort(sortingStrategy.compare);
+
+    return products;
+  }
+
+  void reset() {
+    category = GeneralProductCategory.ALL;
+    currentPrice = maxPrice;
+    labels = {};
+    onlyFavorites = false;
+  }
+
+  void toggleLabel(String label) {
+    if (labels.contains(label)) {
+      labels.remove(label);
+    } else {
+      labels.add(label);
+    }
 
     notifyListeners();
   }
@@ -64,28 +101,6 @@ class FilterHandler extends ChangeNotifier {
       notifyListeners();
     });
   }
-
-  void toggleLabel(String label) {
-    if (labels.contains(label)) {
-      labels.remove(label);
-    } else {
-      labels.add(label);
-    }
-
-    notifyListeners();
-  }
-
-  List<Product> match(List<Product> allProducts) {
-    final products = allProducts.where((product) {
-      return product.price <= currentPrice &&
-          category.subCategories.contains(product.category) &&
-          product.activeLabels.containsAll(labels) &&
-          product.name.toLowerCase().contains(searchString.toLowerCase());
-    }).toList();
-    products.sort(sortingStrategy.compare);
-
-    return products;
-  }
 }
 
 enum SortingStrategy {
@@ -103,11 +118,11 @@ enum SortingStrategy {
     return a.name.toLowerCase().compareTo(b.name.toLowerCase());
   }
 
-  static int _priceRising(Product a, Product b) {
-    return a.price.compareTo(b.price);
-  }
-
   static int _priceFalling(Product a, Product b) {
     return b.price.compareTo(a.price);
+  }
+
+  static int _priceRising(Product a, Product b) {
+    return a.price.compareTo(b.price);
   }
 }

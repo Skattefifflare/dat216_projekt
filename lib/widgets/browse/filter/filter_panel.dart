@@ -2,6 +2,7 @@ import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/filter_handler.dart';
 import 'package:dat216_projekt/model/imat/product.dart';
 import 'package:dat216_projekt/widgets/browse/filter/app_dropdown.dart';
+import 'package:dat216_projekt/widgets/browse/filter/filter_checkbox.dart';
 import 'package:dat216_projekt/widgets/browse/filter/food_labels.dart';
 import 'package:dat216_projekt/widgets/browse/filter/price_slider.dart';
 import 'package:flutter/material.dart';
@@ -76,6 +77,12 @@ class FilterPanel extends StatelessWidget {
 
           Divider(),
           PriceSlider(),
+          Divider(),
+          FilterCheckbox(
+            text: 'Favoriter',
+            onChanged: (value) => filterState.onlyFavorites = value,
+            enabled: filterState.onlyFavorites,
+          ),
           Divider(),
           FoodLabels(),
 

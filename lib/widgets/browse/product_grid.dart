@@ -15,7 +15,7 @@ class ProductGrid extends StatelessWidget {
 
     final colorTheme = Theme.of(context).colorScheme;
 
-    final displayProducts = filterState.match(iMat.selectProducts);
+    final displayProducts = filterState.match(iMat);
 
     return Container(
       alignment: Alignment.topCenter,

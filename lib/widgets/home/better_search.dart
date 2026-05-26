@@ -73,7 +73,9 @@ class BetterSearch extends StatelessWidget {
               filterState.searchString = value;
               _hideOverlay();
 
+              // If not in browse, reset filters and go there
               if (GoRouterState.of(context).uri.toString() != '/browse') {
+                filterState.reset();
                 context.go('/browse');
               }
             },
