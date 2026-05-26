@@ -56,6 +56,11 @@ class _DeliveryReviewState extends State<DeliveryReview> {
             customer.address = value;
             context.read<ImatDataHandler>().setCustomer(customer);
           },
+          checkFormat: (String value){
+            if (value.isNotEmpty) return true;
+            return false;
+          },
+          errorMessage: "Fyll i textfältet med address",
           width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium,),
@@ -68,6 +73,11 @@ class _DeliveryReviewState extends State<DeliveryReview> {
             customer.postCode = value;
             context.read<ImatDataHandler>().setCustomer(customer);
           },
+          checkFormat: (String value){
+            if (value.isNotEmpty) return true;
+            return false;
+          },
+          errorMessage: "Fyll i textfältet med postkod",
           width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium,),
@@ -80,6 +90,11 @@ class _DeliveryReviewState extends State<DeliveryReview> {
             customer.postAddress = value;
             context.read<ImatDataHandler>().setCustomer(customer);
           },
+          checkFormat: (String value){
+            if (value.isNotEmpty) return true;
+            return false;
+          },
+          errorMessage: "Fyll i textfältet med postaddress",
           width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium,),

@@ -25,6 +25,11 @@ class PaymentReview extends StatelessWidget {
             creditCard.cardType = value;
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
+          checkFormat: (String value){
+            if (value.isNotEmpty) return true;
+            return false;
+          },
+          errorMessage: "Fyll i textfältet med din korttyp",
           width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium),
@@ -37,6 +42,11 @@ class PaymentReview extends StatelessWidget {
             creditCard.holdersName = value;
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
+          checkFormat: (String value){
+            if (value.isNotEmpty) return true;
+            return false;
+          },
+          errorMessage: "Fyll i textfältet med ditt fullständiga namn",
           width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium),
@@ -49,6 +59,11 @@ class PaymentReview extends StatelessWidget {
             creditCard.cardNumber = value;
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
+          checkFormat: (String value){
+            if (value.length == 16) return true;
+            return false;
+          },
+          errorMessage: "Skriv kortets 16 siffror",
           width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium),
@@ -68,6 +83,11 @@ class PaymentReview extends StatelessWidget {
             creditCard.validYear = int.parse(value);
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
+          checkFormat: (String value){
+            if (value.length == 4) return true;
+            return false;
+          },
+          errorMessage: "Skriv utgångsår med 4 siffror",
           width: 100,
         ),
         SizedBox(height: AppTheme.paddingMedium,),
@@ -80,6 +100,11 @@ class PaymentReview extends StatelessWidget {
             creditCard.validMonth = int.parse(value);
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
+          checkFormat: (String value){
+            if (value.length == 2) return true;
+            return false;
+          },
+          errorMessage: "Skriv utgångsmånad med 2 siffror",
           width: 100,
         ),
         SizedBox(height: AppTheme.paddingMedium,),
@@ -92,6 +117,11 @@ class PaymentReview extends StatelessWidget {
             creditCard.verificationCode = int.parse(value);
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
+          checkFormat: (String value){
+            if (value.length == 3) return true;
+            return false;
+          },
+          errorMessage: "Skriv verifieringsnummer med 3 siffror",
           width: 100,
         ),
         SizedBox(height: AppTheme.paddingMedium,),

@@ -6,12 +6,17 @@ class ReviewField extends StatefulWidget {
   final String intitialVal;
   final Function(String) onSave;
   final double width;
+  final bool Function(String) checkFormat;
+  final String errorMessage;
 
   const ReviewField({
     super.key,
     required this.label,
     required this.intitialVal,
-    required this.onSave, required this.width,
+    required this.onSave,
+    required this.width,
+    required this.checkFormat,
+    required this.errorMessage,
   });
 
   @override
@@ -21,6 +26,7 @@ class ReviewField extends StatefulWidget {
 class _ReviewFieldState extends State<ReviewField> {
   final _addressController = TextEditingController();
   bool canEdit = false;
+  bool showError = false;
   @override
   void initState() {
     super.initState();
@@ -47,14 +53,21 @@ class _ReviewFieldState extends State<ReviewField> {
                 controller: _addressController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppTheme.colorScheme.outline, width: 2)
+                    borderSide: BorderSide(
+                      color: AppTheme.colorScheme.outline,
+                      width: 2,
+                    ),
                   ),
-                  suffixIcon: !canEdit ? Icon(Icons.lock) : Icon(Icons.lock_open),
+                  suffixIcon: !canEdit
+                      ? Icon(Icons.lock)
+                      : Icon(Icons.lock_open),
                 ),
                 readOnly: !canEdit,
               ),
             ),
-            Padding(padding: EdgeInsetsGeometry.only(left: AppTheme.paddingSmall)),
+            Padding(
+              padding: EdgeInsetsGeometry.only(left: AppTheme.paddingSmall),
+            ),
             SizedBox(
               width: 88,
               child: ElevatedButton(
@@ -71,6 +84,13 @@ class _ReviewFieldState extends State<ReviewField> {
                     } else {
                       canEdit = true;
                     }
+
+                    if (widget.checkFormat(_addressController.text)){
+                      showError = false;
+                    }
+                    else{
+                      showError = true;
+                    }
                   });
                 }),
                 child: Text(
@@ -79,8 +99,15 @@ class _ReviewFieldState extends State<ReviewField> {
                 ),
               ),
             ),
+            
           ],
         ),
+        Text(
+              showError
+                  ? widget.errorMessage
+                  : "",
+              style: AppTheme.textSmall(color: AppTheme.colorScheme.error),
+            ),
       ],
     );
   }
