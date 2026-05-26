@@ -27,7 +27,7 @@ class CartReview extends StatelessWidget {
       children: [
         Column(
           children: [
-            Text("Sammanfattning:", style: AppTheme.textMediumSerif()),
+            Text("Sammanfattning", style: AppTheme.textMediumSerif()),
             Divider(thickness: 1),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -75,8 +75,13 @@ class CartReview extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [Text("inkl. moms", style: AppTheme.textSmall())],
             ),
-            SizedBox(height: AppTheme.paddingHuge),
-            NavigationButton(goesForward: true, width: 300),
+            SizedBox(height: AppTheme.paddingHuge+4),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                NavigationButton(goesForward: true, width: 200),
+              ],
+            ),
           ],
         ),
       ],

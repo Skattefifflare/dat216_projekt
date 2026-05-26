@@ -25,7 +25,7 @@ class PaymentReview extends StatelessWidget {
             creditCard.cardType = value;
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
-          width: 300,
+          width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium),
         Divider(thickness: AppTheme.strokeTiny),
@@ -37,7 +37,7 @@ class PaymentReview extends StatelessWidget {
             creditCard.holdersName = value;
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
-          width: 300,
+          width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium),
         Divider(thickness: AppTheme.strokeTiny),
@@ -49,7 +49,7 @@ class PaymentReview extends StatelessWidget {
             creditCard.cardNumber = value;
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
-          width: 300,
+          width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium),
         Divider(thickness: AppTheme.strokeTiny),

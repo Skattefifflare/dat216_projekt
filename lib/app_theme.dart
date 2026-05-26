@@ -39,7 +39,7 @@ class AppTheme {
   // Home - Category Card
   static const categoryCardMargin = paddingSmall;
   static const categoryCardWidth = contentMaxWidth / 3 - categoryCardMargin * 2;
-  static const categoryCardHeight = 200.0;
+  static const categoryCardHeight = 184.0;
   static const categoryCardPadding = paddingMediumSmall;
   static const categoryCardIconSize = 24.0;
 
@@ -72,7 +72,7 @@ class AppTheme {
   // Global
   static const edgePadding = paddingMedium;
   static const containerPadding = paddingMedium;
-  static const contentMaxWidth = 960.0;
+  static const contentMaxWidth = 1080.0;
 
   // Fonts
   static TextStyle textSmall({Color? color}) => GoogleFonts.inter(

@@ -12,9 +12,9 @@ class Home extends StatelessWidget {
       mainAxisAlignment: .center,
       children: [
         HomeText(),
-        SizedBox(height: AppTheme.paddingHuge),
+        SizedBox(height: AppTheme.paddingLarge),
         BetterSearch(),
-        SizedBox(height: AppTheme.paddingHuge),
+        SizedBox(height: AppTheme.paddingLarge),
         CategoryGrid(),
       ],
     );

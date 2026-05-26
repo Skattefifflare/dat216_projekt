@@ -56,7 +56,7 @@ class _DeliveryReviewState extends State<DeliveryReview> {
             customer.address = value;
             context.read<ImatDataHandler>().setCustomer(customer);
           },
-          width: 300,
+          width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium,),
         Divider(thickness: AppTheme.strokeTiny),
@@ -68,7 +68,7 @@ class _DeliveryReviewState extends State<DeliveryReview> {
             customer.postCode = value;
             context.read<ImatDataHandler>().setCustomer(customer);
           },
-          width: 300,
+          width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium,),
         Divider(thickness: AppTheme.strokeTiny),
@@ -80,7 +80,7 @@ class _DeliveryReviewState extends State<DeliveryReview> {
             customer.postAddress = value;
             context.read<ImatDataHandler>().setCustomer(customer);
           },
-          width: 300,
+          width: 250,
         ),
         SizedBox(height: AppTheme.paddingMedium,),
         Divider(thickness: AppTheme.strokeTiny),

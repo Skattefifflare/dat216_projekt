@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 class CheckoutPanel extends StatelessWidget {
   final Widget leftPanel;
   final Widget rightPanel;
-  const CheckoutPanel({super.key, required this.leftPanel, required this.rightPanel});
+  const CheckoutPanel({
+    super.key,
+    required this.leftPanel,
+    required this.rightPanel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +18,8 @@ class CheckoutPanel extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 480,
-          width: 500,
+          height: 470,
+          width: AppTheme.contentMaxWidth/2 - 70,
           child: Padding(
             padding: const EdgeInsets.only(
               right: AppTheme.paddingLarge,
@@ -26,8 +30,8 @@ class CheckoutPanel extends StatelessWidget {
         ),
         VertDivide(),
         SizedBox(
-          height: 480,
-          width: 500,
+          height: 470,
+          width: AppTheme.contentMaxWidth/2 - 70,
           child: Padding(
             padding: const EdgeInsets.only(
               right: AppTheme.paddingLarge,

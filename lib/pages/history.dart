@@ -49,7 +49,7 @@ class _HistoryState extends State<History> {
         ),
 
         Container(
-          height: 592,
+          height: 421,
           width: 1250,
           decoration: BoxDecoration(
             border: Border.all(color: AppTheme.colorScheme.primary, width: 3.0),
