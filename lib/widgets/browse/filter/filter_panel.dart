@@ -1,6 +1,7 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/filter_handler.dart';
 import 'package:dat216_projekt/model/imat/product.dart';
+import 'package:dat216_projekt/widgets/appIconButton.dart';
 import 'package:dat216_projekt/widgets/browse/filter/app_dropdown.dart';
 import 'package:dat216_projekt/widgets/browse/filter/filter_checkbox.dart';
 import 'package:dat216_projekt/widgets/browse/filter/food_labels.dart';
@@ -29,6 +30,8 @@ class FilterPanel extends StatelessWidget {
         mainAxisSize: .min,
         crossAxisAlignment: .start,
         children: [
+          Text('Filter', style: AppTheme.textLargeThick()),
+
           // Sorting
           Text('Sortera efter', style: AppTheme.textMediumThick()),
           AppDropdown<SortingStrategy>(
@@ -85,14 +88,14 @@ class FilterPanel extends StatelessWidget {
           ),
           Divider(),
           FoodLabels(),
-
-          //TODO Remove
-          // SizedBox(height: 100),
-          // Text('The lazy dog', style: textTheme.displayMedium),
-          // Text('The lazy dog', style: textTheme.headlineMedium),
-          // Text('The lazy dog', style: textTheme.titleMedium),
-          // Text('The lazy dog', style: textTheme.bodyMedium),
-          // Text('The lazy dog', style: textTheme.labelMedium),
+          SizedBox(height: AppTheme.paddingGiant),
+          AppIconButton(
+            text: 'Återställ',
+            icon: Icons.filter_alt_off,
+            onPressed: () {
+              filterState.reset();
+            },
+          ),
         ],
       ),
     );
