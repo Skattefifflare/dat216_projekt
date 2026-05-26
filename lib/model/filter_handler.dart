@@ -13,6 +13,15 @@ class FilterHandler extends ChangeNotifier {
 
   Set<String> labels = {};
 
+  var _searchString = '';
+
+  void reset() {
+    _category = GeneralProductCategory.ALL;
+    _currentPrice = maxPrice;
+    labels = {};
+    _searchString = '';
+  }
+
   SortingStrategy get sortingStrategy => _sortingStrategy;
   set sortingStrategy(SortingStrategy strategy) {
     _sortingStrategy = strategy;
@@ -30,6 +39,13 @@ class FilterHandler extends ChangeNotifier {
   double get currentPrice => _currentPrice;
   set currentPrice(double price) {
     _currentPrice = price;
+
+    notifyListeners();
+  }
+
+  String get searchString => _searchString;
+  set searchString(String string) {
+    _searchString = string;
 
     notifyListeners();
   }
@@ -61,11 +77,10 @@ class FilterHandler extends ChangeNotifier {
 
   List<Product> match(List<Product> allProducts) {
     final products = allProducts.where((product) {
-      final categoryMatch = category.subCategories.contains(product.category);
-      final priceMatch = product.price <= currentPrice;
-      final labelMatch = product.activeLabels.containsAll(labels);
-
-      return categoryMatch && priceMatch && labelMatch;
+      return product.price <= currentPrice &&
+          category.subCategories.contains(product.category) &&
+          product.activeLabels.containsAll(labels) &&
+          product.name.toLowerCase().contains(searchString.toLowerCase());
     }).toList();
     products.sort(sortingStrategy.compare);
 

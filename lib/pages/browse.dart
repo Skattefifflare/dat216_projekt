@@ -17,7 +17,7 @@ class Browse extends StatelessWidget {
             padding: const .symmetric(horizontal: AppTheme.edgePadding),
             child: Column(
               children: [
-                BetterSearch(showSuggestions: false,),
+                BetterSearch(),
                 Expanded(child: ProductGrid()),
               ],
             ),
