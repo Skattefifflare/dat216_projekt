@@ -56,8 +56,9 @@ class ReviewCard extends StatelessWidget {
                         width: AppTheme.addToCartButtonHeight,
                         child: IconButton(
                           icon: Icon(Icons.delete_outline),
+                          color: colorTheme.onTertiary,
                           style: IconButton.styleFrom(
-                            backgroundColor: colorTheme.primaryFixedDim,
+                            backgroundColor: colorTheme.tertiary,
                           ),
                           onPressed: () {
                             context.read<ImatDataHandler>().shoppingCartRemove(
