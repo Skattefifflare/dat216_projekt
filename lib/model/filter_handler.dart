@@ -70,11 +70,12 @@ class FilterHandler extends ChangeNotifier {
     return products;
   }
 
-  void reset() {
+  void reset({bool clearSearch = true}) {
     category = GeneralProductCategory.ALL;
     currentPrice = maxPrice;
     labels = {};
     onlyFavorites = false;
+    if (clearSearch)  searchString = "";
   }
 
   void toggleLabel(String label) {

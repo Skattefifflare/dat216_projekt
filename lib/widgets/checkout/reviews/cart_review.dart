@@ -27,7 +27,7 @@ class CartReview extends StatelessWidget {
       children: [
         Column(
           children: [
-            Text("Sammanfattning", style: AppTheme.textMediumSerif()),
+            Text("Sammanfattning", style: AppTheme.textLargeThick()),
             Divider(thickness: 1),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

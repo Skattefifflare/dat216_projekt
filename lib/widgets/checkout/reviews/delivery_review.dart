@@ -31,7 +31,7 @@ class _DeliveryReviewState extends State<DeliveryReview> {
       children: [
         Text(
           "Välj Leveransdatum",
-          style: AppTheme.textMediumSerif(),
+          style: AppTheme.textLargeThick(),
         ),
         Divider(thickness: 1),
         CalendarDatePicker(

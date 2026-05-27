@@ -81,11 +81,6 @@ class AppTheme {
     color: color,
   );
 
-  static TextStyle textMediumSerif({Color? color}) => GoogleFonts.ptSerif(
-    fontSize: 30,
-    fontWeight: FontWeight.w500,
-    color: color,
-  );
   static TextStyle textMediumThick({Color? color}) => GoogleFonts.roboto(
     fontSize: 24,
     fontWeight: FontWeight.w800,
@@ -163,4 +158,6 @@ class AppTheme {
     error: Colors.redAccent,
     onError: Colors.orange,
   );
+
+  static const suggestionHeight = 42.0;
 }

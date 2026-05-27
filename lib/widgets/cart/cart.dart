@@ -31,8 +31,8 @@ class Cart extends StatelessWidget {
           child: Row(
             mainAxisAlignment: .spaceBetween,
             children: [
-              Text('Totalt'),
-              Text('${iMat.shoppingCartTotal().toString()} SEK'),
+              Text('Totalt', style: AppTheme.textLargeNormal(color: Colors.black),),
+              Text('${iMat.shoppingCartTotal().toString()} SEK', style: AppTheme.textLargeThick(color: Colors.black),),
             ],
           ),
         ),

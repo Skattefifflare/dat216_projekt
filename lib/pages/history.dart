@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import "package:dat216_projekt/widgets/history/history_list.dart";
 import 'package:dat216_projekt/app_theme.dart';
@@ -46,9 +48,7 @@ class _HistoryState extends State<History> {
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: ScrollConfiguration(
-            behavior: ScrollConfiguration.of(
-              context,
-            ).copyWith(scrollbars: true),
+            behavior: _TrackpadScrollBehavior(),
             child: SingleChildScrollView(
               controller: _scrollController,
               child: HistoryList(
@@ -65,4 +65,13 @@ class _HistoryState extends State<History> {
       ],
     );
   }
+}
+
+class _TrackpadScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+    PointerDeviceKind.trackpad,
+  };
 }

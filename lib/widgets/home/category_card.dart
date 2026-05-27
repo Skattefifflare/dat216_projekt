@@ -19,6 +19,7 @@ class CategoryCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: GestureDetector(
         onTap: () {
+          context.read<FilterHandler>().reset();
           context.read<FilterHandler>().category = category;
           context.go('/browse');
         },

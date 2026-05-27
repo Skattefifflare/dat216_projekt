@@ -38,6 +38,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'iMat',
       routerConfig: appRouter,
       theme: ThemeData(
@@ -45,7 +46,7 @@ class App extends StatelessWidget {
         colorScheme: AppTheme.colorScheme,
         cardTheme: CardThemeData(
           color: AppTheme.colorScheme.onPrimary,
-          elevation: 0,
+          elevation: 3,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
             side: BorderSide(

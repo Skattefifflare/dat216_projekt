@@ -18,6 +18,7 @@ class Browse extends StatelessWidget {
             child: Column(
               children: [
                 BetterSearch(),
+                SizedBox(height: AppTheme.paddingMedium,),
                 Expanded(child: ProductGrid()),
               ],
             ),

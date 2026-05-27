@@ -1,4 +1,5 @@
 import 'package:dat216_projekt/app_theme.dart';
+import 'package:dat216_projekt/model/filter_handler.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:dat216_projekt/widgets/cart/cart.dart';
 import 'package:dat216_projekt/widgets/navigation/header_button.dart';
@@ -16,6 +17,8 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final iMat = context.watch<ImatDataHandler>();
+    final filterState = context.read<FilterHandler>();
+
     final colorTheme = Theme.of(context).colorScheme;
 
     return Container(
@@ -51,7 +54,13 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
           HeaderButton(
             icon: Icons.shelves,
             text: 'Handla nu',
-            onPressed: () => context.go('/browse'),
+            onPressed: () {
+              if (GoRouterState.of(context).uri.toString() == '/browse') {
+                filterState.reset();
+              } else {
+                context.go('/browse');
+              }
+            },
           ),
           Spacer(),
           Stack(
@@ -82,8 +91,11 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                         .getShoppingCart()
                         .items
                         .fold<double>(0, (sum, item) => sum + item.amount)
+                        .round()
                         .toString(),
-                    style: AppTheme.textMediumThin(color: colorTheme.onPrimary),
+                    style: AppTheme.textLargeNormal(
+                      color: AppTheme.colorScheme.onTertiary,
+                    ),
                   ),
                 ),
               ),

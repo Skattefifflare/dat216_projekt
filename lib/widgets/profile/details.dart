@@ -83,7 +83,7 @@ class _DetailsState extends State<Details> {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 1000),
       child: Card(
-        color: theme.surfaceContainerHighest,
+        color: theme.surfaceContainerHigh,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppTheme.radiusLarge),

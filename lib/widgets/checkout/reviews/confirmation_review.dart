@@ -53,7 +53,7 @@ class _ConfirmationReviewState extends State<ConfirmationReview> {
                 borderRadius: BorderRadius.circular(7),
               ),
             ),
-            onPressed: () => {context.go('/browse'), navigation.reset(), context.read<ImatDataHandler>().shoppingCartClear()},
+            onPressed: () => {context.go('/'), navigation.reset(), context.read<ImatDataHandler>().shoppingCartClear()},
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

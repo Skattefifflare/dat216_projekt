@@ -15,14 +15,24 @@ class BetterSearch extends StatelessWidget {
     if (_overlayEntry != null) return;
 
     _overlayEntry = OverlayEntry(
-      builder: (context) => Positioned(
-        width: AppTheme.contentMaxWidth,
-        child: CompositedTransformFollower(
-          link: _layerLink,
-          showWhenUnlinked: false,
-          offset: const Offset(0, 60),
-          child: const SuggestionsList(),
-        ),
+      builder: (context) => Stack(
+        children: [
+          Positioned.fill(
+            child: GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: _hideOverlay,
+            ),
+          ),
+          Positioned(
+            width: AppTheme.contentMaxWidth,
+            child: CompositedTransformFollower(
+              link: _layerLink,
+              showWhenUnlinked: false,
+              offset: const Offset(0, 60),
+              child: const SuggestionsList(),
+            ),
+          ),
+        ],
       ),
     );
     Overlay.of(context).insert(_overlayEntry!);
@@ -75,7 +85,7 @@ class BetterSearch extends StatelessWidget {
 
               // If not in browse, reset filters and go there
               if (GoRouterState.of(context).uri.toString() != '/browse') {
-                filterState.reset();
+                filterState.reset(clearSearch: false);
                 context.go('/browse');
               }
             },
@@ -122,7 +132,7 @@ class SuggestionsList extends StatelessWidget {
     if (suggestions.isEmpty) return const SizedBox.shrink();
 
     return SizedBox(
-      height: 300,
+      height: suggestions.length * AppTheme.suggestionHeight,
       child: Material(
         color: const Color.fromARGB(45, 255, 255, 255),
         child: ListView.builder(
@@ -130,7 +140,7 @@ class SuggestionsList extends StatelessWidget {
           itemBuilder: (context, index) => Column(
             children: [
               InkWell(
-                hoverColor: Colors.amber,
+                hoverColor: AppTheme.colorScheme.tertiary,
                 onTap: () {
                   filterState.reset();
                   filterState.searchString = suggestions[index];
@@ -138,10 +148,15 @@ class SuggestionsList extends StatelessWidget {
                 },
                 child: ListTile(
                   tileColor: Colors.white,
-                  title: Text(suggestions[index]),
+                  title: Text(
+                    suggestions[index],
+                    style: AppTheme.textMediumNormal(
+                      color: AppTheme.colorScheme.onSurface,
+                    ),
+                  ),
                 ),
               ),
-              const Divider(height: 1),
+              Divider(height: 1, color: AppTheme.colorScheme.outline),
             ],
           ),
         ),
