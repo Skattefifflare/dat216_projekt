@@ -75,7 +75,7 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
-    final handler = context.read<ImatDataHandler>();
+    final handler = context.watch<ImatDataHandler>();
     final customer = handler.getCustomer();
     final user = handler.getUser();
     final creditCard = handler.getCreditCard();
