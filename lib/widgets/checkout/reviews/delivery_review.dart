@@ -23,10 +23,11 @@ class _DeliveryReviewState extends State<DeliveryReview> {
       context.read<CheckoutNavigation>().setDeliveryDate(DateTime.now());
     });
   }
+  
   @override
   Widget build(BuildContext context) {
-    final customer = context.read<ImatDataHandler>().getCustomer();
-    CheckoutNavigation navigation = context.read<CheckoutNavigation>();
+    final customer = context.watch<ImatDataHandler>().getCustomer();
+    CheckoutNavigation navigation = context.watch<CheckoutNavigation>();
     Widget left = Column(
       children: [
         Text(
@@ -54,7 +55,7 @@ class _DeliveryReviewState extends State<DeliveryReview> {
           intitialVal: customer.address,
           onSave: (String value) {
             customer.address = value;
-            context.read<ImatDataHandler>().setCustomer(customer);
+            context.watch<ImatDataHandler>().setCustomer(customer);
           },
           checkFormat: (String value){
             if (value.isNotEmpty) return true;

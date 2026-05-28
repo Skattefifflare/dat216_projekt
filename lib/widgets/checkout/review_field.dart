@@ -40,6 +40,14 @@ class _ReviewFieldState extends State<ReviewField> {
   }
 
   @override
+  void didUpdateWidget(ReviewField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.intitialVal != widget.intitialVal) {
+      _addressController.text = widget.intitialVal;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,10 +93,9 @@ class _ReviewFieldState extends State<ReviewField> {
                       canEdit = true;
                     }
 
-                    if (widget.checkFormat(_addressController.text)){
+                    if (widget.checkFormat(_addressController.text)) {
                       showError = false;
-                    }
-                    else{
+                    } else {
                       showError = true;
                     }
                   });
@@ -99,15 +106,12 @@ class _ReviewFieldState extends State<ReviewField> {
                 ),
               ),
             ),
-            
           ],
         ),
         Text(
-              showError
-                  ? widget.errorMessage
-                  : "",
-              style: AppTheme.textSmall(color: AppTheme.colorScheme.error),
-            ),
+          showError ? widget.errorMessage : "",
+          style: AppTheme.textSmall(color: AppTheme.colorScheme.error),
+        ),
       ],
     );
   }
