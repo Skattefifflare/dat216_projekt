@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class AppIconButton extends StatelessWidget {
   final String text;
   final IconData icon;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const AppIconButton({
     super.key,

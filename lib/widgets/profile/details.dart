@@ -1,5 +1,6 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:dat216_projekt/model/imat_data_handler.dart';
+import 'package:dat216_projekt/widgets/appIconButton.dart';
 import 'package:dat216_projekt/widgets/profile/profile_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -317,22 +318,16 @@ class _DetailsState extends State<Details> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: theme.secondary,
-                      foregroundColor: theme.onSecondary,
-                    ),
+                  AppIconButton(
+                    text: 'Ändra uppgifter',
+                    icon: Icons.edit,
                     onPressed: _isEditing ? null : _enableEditing,
-                    child: const Text('Ändra uppgifter'),
                   ),
                   const SizedBox(width: AppTheme.paddingMedium),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: theme.secondary,
-                      foregroundColor: theme.onSecondary,
-                    ),
+                  AppIconButton(
+                    text: 'Spara uppgifter',
+                    icon: Icons.save,
                     onPressed: _isEditing ? _saveUpdates : null,
-                    child: const Text('Spara uppgifter'),
                   ),
                 ],
               ),
