@@ -63,43 +63,26 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
             },
           ),
           Spacer(),
-          Stack(
-            children: [
-              HeaderButton(
-                icon: Icons.shopping_cart_outlined,
-                onPressed: () => OverlayController.open(
-                  context,
-                  width: AppTheme.cartWidth,
-                  child: Cart(),
-                ),
+          Badge(
+            backgroundColor: colorTheme.tertiary,
+            alignment: const Alignment(-1, 0.6),
+            label: Text(
+              iMat
+                  .getShoppingCart()
+                  .items
+                  .fold<double>(0, (sum, item) => sum + item.amount)
+                  .truncate()
+                  .toString(),
+              style: AppTheme.textLargeNormal(color: colorTheme.onTertiary),
+            ),
+            child: HeaderButton(
+              icon: Icons.shopping_cart_outlined,
+              onPressed: () => OverlayController.open(
+                context,
+                width: AppTheme.cartWidth,
+                child: const Cart(),
               ),
-              Positioned(
-                bottom: -5,
-                left: 0,
-                child: Container(
-                  padding: .all(AppTheme.paddingTiny),
-                  decoration: BoxDecoration(
-                    color: colorTheme.tertiary,
-                    shape: .circle,
-                    border: .all(
-                      width: AppTheme.strokeMedium,
-                      color: colorTheme.primary,
-                    ),
-                  ),
-                  child: Text(
-                    iMat
-                        .getShoppingCart()
-                        .items
-                        .fold<double>(0, (sum, item) => sum + item.amount)
-                        .truncate()
-                        .toString(),
-                    style: AppTheme.textLargeNormal(
-                      color: AppTheme.colorScheme.onTertiary,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
           HeaderButton(
             icon: Icons.person_outline,
