@@ -14,16 +14,17 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorTheme = Theme.of(context).colorScheme;
-
     final iMat = context.read<ImatDataHandler>();
     final image = iMat.getImage(product);
 
-    final ProductDetail details = iMat.getDetail(product)!;
+    final ProductDetail? details = iMat.getDetail(product);
+
+    // Not all products have details, without them the card cant be filled out with info
+    if (details == null) {
+      return SizedBox.shrink();
+    }
 
     return Card(
-      // Some images have white background, and there is no perfect white in the color theme
-      
       child: Padding(
         padding: const .all(AppTheme.paddingMediumSmall),
         child: Column(
@@ -35,14 +36,8 @@ class ProductCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: .start,
                   children: [
-                    Text(
-                      product.name,
-                      style: AppTheme.textMediumThick(),
-                    ),
-                    Text(
-                      details.brand,
-                      style: AppTheme.textSmall(),
-                    ),
+                    Text(product.name, style: AppTheme.textMediumThick()),
+                    Text(details.brand, style: AppTheme.textSmall()),
                   ],
                 ),
                 FavoriteIcon(product: product),
