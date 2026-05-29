@@ -1,4 +1,3 @@
-import 'package:dat216_projekt/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class VertDivide extends StatelessWidget {
@@ -6,12 +5,6 @@ class VertDivide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        left: AppTheme.paddingMedium,
-        right: AppTheme.paddingMedium,
-      ),
-      child: SizedBox(height: 450, child: VerticalDivider(width: 2)),
-    );
+    return SizedBox(height: 470, child: VerticalDivider(width: 2));
   }
 }

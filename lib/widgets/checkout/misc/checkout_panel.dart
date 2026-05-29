@@ -19,26 +19,14 @@ class CheckoutPanel extends StatelessWidget {
       children: [
         SizedBox(
           height: 470,
-          width: AppTheme.contentMaxWidth/2 - 70,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              right: AppTheme.paddingLarge,
-              left: AppTheme.paddingLarge,
-            ),
-            child: leftPanel,
-          ),
+          width: AppTheme.contentMaxWidth / 2 - 70,
+          child: leftPanel,
         ),
         VertDivide(),
         SizedBox(
           height: 470,
-          width: AppTheme.contentMaxWidth/2 - 70,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              right: AppTheme.paddingLarge,
-              left: AppTheme.paddingLarge,
-            ),
-            child: rightPanel,
-          ),
+          width: AppTheme.contentMaxWidth / 2 - 70,
+          child: rightPanel,
         ),
       ],
     );
