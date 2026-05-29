@@ -16,7 +16,7 @@ class PriceSlider extends StatelessWidget {
           children: [
             Text('Maxpris', style: AppTheme.textMediumThick()),
             Text(
-              '${filterState.currentPrice} SEK',
+              '${filterState.currentPrice.truncate()} SEK',
               style: AppTheme.textMediumNormal(),
             ),
           ],

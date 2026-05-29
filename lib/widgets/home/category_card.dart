@@ -21,6 +21,7 @@ class CategoryCard extends StatelessWidget {
         onTap: () {
           context.read<FilterHandler>().reset();
           context.read<FilterHandler>().category = category;
+          context.read<FilterHandler>().flashCategory = true;
           context.go('/browse');
         },
         child: MouseRegion(

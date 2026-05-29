@@ -41,14 +41,14 @@ class AddToCart extends StatelessWidget {
                   ),
                   Container(
                     width: AppTheme.addToCartAmountWidth,
-                    color: colorTheme.surfaceContainer,
+                    color: colorTheme.surfaceContainerHigh,
                     alignment: .center,
                     padding: const .only(
                       left: AppTheme.paddingMedium,
                       right: AppTheme.paddingMedium,
                     ),
                     child: Text(
-                      amount.toString(),
+                      amount.truncate().toString(),
                       overflow: .fade,
                       softWrap: false,
                       style: AppTheme.textLargeNormal(),

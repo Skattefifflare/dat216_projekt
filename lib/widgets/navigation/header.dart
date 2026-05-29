@@ -91,7 +91,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                         .getShoppingCart()
                         .items
                         .fold<double>(0, (sum, item) => sum + item.amount)
-                        .round()
+                        .truncate()
                         .toString(),
                     style: AppTheme.textLargeNormal(
                       color: AppTheme.colorScheme.onTertiary,
