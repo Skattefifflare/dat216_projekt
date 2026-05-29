@@ -75,7 +75,7 @@ class FilterHandler extends ChangeNotifier {
     currentPrice = maxPrice;
     labels = {};
     onlyFavorites = false;
-    if (clearSearch)  searchString = "";
+    if (clearSearch) searchString = "";
   }
 
   void toggleLabel(String label) {
@@ -94,7 +94,7 @@ class FilterHandler extends ChangeNotifier {
     maxPrice = products.map((p) => p.price).reduce(max);
 
     // Only change if outside bounds
-    if (currentPrice < minPrice || maxPrice > currentPrice) {
+    if (currentPrice < minPrice || maxPrice < currentPrice) {
       currentPrice = maxPrice;
     }
 
