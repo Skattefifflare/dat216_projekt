@@ -88,13 +88,18 @@ class FilterPanel extends StatelessWidget {
           ),
           Divider(),
           FoodLabels(),
-          SizedBox(height: AppTheme.paddingGiant),
-          AppIconButton(
-            text: 'Återställ',
-            icon: Icons.filter_alt_off,
-            onPressed: () {
-              filterState.reset();
-            },
+          Divider(),
+          Row(
+            mainAxisAlignment: .center,
+            children: [
+              AppIconButton(
+                text: 'Återställ',
+                icon: Icons.filter_alt_off,
+                onPressed: () {
+                  filterState.reset();
+                },
+              ),
+            ],
           ),
         ],
       ),
