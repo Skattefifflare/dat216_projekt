@@ -52,7 +52,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
           ),
           const SizedBox(width: AppTheme.paddingMedium),
           HeaderButton(
-            icon: Icons.shelves,
+            icon: Icons.storefront,
             text: 'Handla nu',
             onPressed: () {
               if (GoRouterState.of(context).uri.toString() == '/browse') {
