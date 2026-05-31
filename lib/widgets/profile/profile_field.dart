@@ -9,7 +9,9 @@ class ProfileField extends StatefulWidget {
   final String hintTxt;
   final double width;
   final bool obscureText;
-
+  final bool Function(String) formatCheck;
+  final String errorText;
+  final Function(String)? onChanged;
 
   const ProfileField({
     super.key,
@@ -20,6 +22,9 @@ class ProfileField extends StatefulWidget {
     required this.hintTxt,
     this.width = 250,
     this.obscureText = false,
+    required this.formatCheck,
+    required this.errorText,
+    this.onChanged,
   });
 
   @override
@@ -28,11 +33,13 @@ class ProfileField extends StatefulWidget {
 
 class ProfileFieldState extends State<ProfileField> {
   final TextEditingController _controller = TextEditingController();
+  String? _errorText;
 
   @override
   void initState() {
     super.initState();
     _controller.text = widget.intitialVal;
+    _errorText = widget.formatCheck(_controller.text) ? null : widget.errorText;
   }
 
   @override
@@ -40,11 +47,22 @@ class ProfileFieldState extends State<ProfileField> {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.intitialVal != widget.intitialVal && !widget.enabled) {
       _controller.text = widget.intitialVal;
+      _errorText = widget.formatCheck(_controller.text) ? null : widget.errorText;
     }
   }
 
+  bool validate(String value) {
+    final isValid = widget.formatCheck(value);
+    setState(() {
+      _errorText = value.isEmpty ? null : (isValid ? null : widget.errorText);
+    });
+    return isValid;
+  }
+
   void save() {
-    widget.onSave(_controller.text);
+    if (validate(_controller.text)) {
+      widget.onSave(_controller.text);
+    }
   }
 
   @override
@@ -69,7 +87,6 @@ class ProfileFieldState extends State<ProfileField> {
           ),
           SizedBox(
             width: widget.width,
-            height: 38,
             child: TextField(
               style: AppTheme.textMediumNormal(),
               controller: _controller,
@@ -77,13 +94,17 @@ class ProfileFieldState extends State<ProfileField> {
               textAlign: TextAlign.center,
               obscureText: widget.obscureText,
               obscuringCharacter: '*',
+              onChanged: (value) {
+                if (widget.enabled) {
+                  validate(value);
+                }
+                widget.onChanged?.call(value);
+              },
               decoration: InputDecoration(
                 hintText: widget.hintTxt,
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 8,
                   horizontal: 12,
-                
-              
                 ),
                 fillColor: theme.surface,
                 filled: true,
@@ -94,9 +115,31 @@ class ProfileFieldState extends State<ProfileField> {
                     width: AppTheme.strokeTiny,
                   ),
                 ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                  borderSide: BorderSide(
+                    color: theme.secondary,
+                    width: AppTheme.strokeTiny,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                  borderSide: BorderSide(
+                    color: theme.primary,
+                    width: AppTheme.strokeSmall,
+                  ),
+                ),
               ),
             ),
           ),
+          if (_errorText != null && _errorText!.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 6),
+              child: Text(
+                _errorText!,
+                style: AppTheme.textSmall(color: theme.error),
+              ),
+            ),
         ],
       ),
     );
