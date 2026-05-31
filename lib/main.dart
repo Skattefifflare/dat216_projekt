@@ -8,6 +8,7 @@ import 'package:dat216_projekt/model/imat_data_handler.dart';
 import 'package:dat216_projekt/model/internet_handler.dart';
 import 'package:dat216_projekt/routes.dart';
 import 'package:dat216_projekt/widgets/checkout/checkout_navigation.dart';
+import 'package:dat216_projekt/widgets/checkout/review_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,6 +26,7 @@ void main() {
           },
         ),
         ChangeNotifierProvider(create: (_) => CheckoutNavigation()),
+        ChangeNotifierProvider(create: (_) => FormatNotifier()),
       ],
       child: const App(),
     ),

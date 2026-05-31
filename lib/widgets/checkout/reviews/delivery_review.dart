@@ -75,7 +75,7 @@ class _DeliveryReviewState extends State<DeliveryReview> {
             context.read<ImatDataHandler>().setCustomer(customer);
           },
           checkFormat: (String value){
-            if (value.isNotEmpty) return true;
+            if (value.length == 5) return true;
             return false;
           },
           errorMessage: "Fyll i textfältet med postkod",
