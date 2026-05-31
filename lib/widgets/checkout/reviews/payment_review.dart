@@ -73,7 +73,7 @@ class _PaymentReviewState extends State<PaymentReview> {
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
           checkFormat: (String value){
-            if (value.replaceAll(' ', '').length == 16) return true;
+            if (value.replaceAll(' ', '').replaceAll('-', '').length == 16) return true;
             return false;
           },
           errorMessage: "Skriv kortets 16 siffror",
