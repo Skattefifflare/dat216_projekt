@@ -1,5 +1,6 @@
 import 'package:dat216_projekt/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ReviewField extends StatefulWidget {
   final String label;
@@ -85,6 +86,8 @@ class _ReviewFieldState extends State<ReviewField> {
                       : AppTheme.colorScheme.tertiary,
                 ),
                 onPressed: (() {
+                  final isValid = widget.checkFormat(_addressController.text);
+                  context.read<FormatNotifier>().setValid(isValid);
                   setState(() {
                     if (canEdit) {
                       widget.onSave(_addressController.text);
@@ -93,7 +96,7 @@ class _ReviewFieldState extends State<ReviewField> {
                       canEdit = true;
                     }
 
-                    if (widget.checkFormat(_addressController.text)) {
+                    if (isValid) {
                       showError = false;
                     } else {
                       showError = true;
@@ -114,5 +117,15 @@ class _ReviewFieldState extends State<ReviewField> {
         ),
       ],
     );
+  }
+}
+
+
+class FormatNotifier extends ChangeNotifier {
+  bool isValid = true;
+
+  void setValid(bool value) {
+    isValid = value;
+    notifyListeners();
   }
 }

@@ -36,13 +36,13 @@ class CheckoutCircle extends StatelessWidget {
 
   Color getCircleColor(CircleState state, ColorScheme theme) {
     if (state == CircleState.done) return theme.secondary;
-    if (state == CircleState.active) return theme.onPrimary;
+    if (state == CircleState.active) return theme.tertiary;
     return AppTheme.colorScheme.surface;
   }
 
   Widget getCircleIcon(CircleState state, ColorScheme theme) {
     if (state == CircleState.done) return Icon(color: theme.onPrimary,size: 75, Icons.check);
-    return Center(child: Text("$step", style: AppTheme.textLargeThick()));
+    return Center(child: Text("$step", style: AppTheme.textLargeThick(color: state == CircleState.active ? theme.onPrimary : Colors.black)));
   }
 
   Color getCircleBorderColor(CircleState state, ColorScheme theme){

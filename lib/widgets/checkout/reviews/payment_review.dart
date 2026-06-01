@@ -73,7 +73,7 @@ class _PaymentReviewState extends State<PaymentReview> {
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
           checkFormat: (String value){
-            if (value.length == 16) return true;
+            if (value.replaceAll(' ', '').replaceAll('-', '').length == 16) return true;
             return false;
           },
           errorMessage: "Skriv kortets 16 siffror",
@@ -90,17 +90,17 @@ class _PaymentReviewState extends State<PaymentReview> {
       children: [
         SizedBox(height: AppTheme.paddingMedium,),
         ReviewField(
-          label: "Utgångsår   (4 siffror)",
+          label: "Utgångsår   (2 siffror)",
           intitialVal: creditCard.validYear.toString(),
           onSave: (String value) {
             creditCard.validYear = int.parse(value);
             context.read<ImatDataHandler>().setCreditCard(creditCard);
           },
           checkFormat: (String value){
-            if (value.length == 4) return true;
+            if (value.length == 2) return true;
             return false;
           },
-          errorMessage: "Skriv utgångsår med 4 siffror",
+          errorMessage: "Skriv utgångsår med 2 siffror",
           width: 100,
         ),
         SizedBox(height: AppTheme.paddingMedium,),
