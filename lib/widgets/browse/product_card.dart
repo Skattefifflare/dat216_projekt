@@ -33,12 +33,14 @@ class ProductCard extends StatelessWidget {
             Row(
               mainAxisAlignment: .spaceBetween,
               children: [
-                Column(
-                  crossAxisAlignment: .start,
-                  children: [
-                    Text(product.name, style: AppTheme.textMediumThick()),
-                    Text(details.brand, style: AppTheme.textSmall()),
-                  ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: .start,
+                    children: [
+                      Text(product.name, style: AppTheme.textMediumThick()),
+                      Text(details.brand, style: AppTheme.textSmall()),
+                    ],
+                  ),
                 ),
                 FavoriteIcon(product: product),
               ],
