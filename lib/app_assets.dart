@@ -2,7 +2,7 @@ class AppAssets {
   static const imageNotFound = 'assets/images/Image-not-found.png';
   static const placeholder = 'assets/images/placeholder.png';
 
-  static const profile = 'assets/images/holgerson.png';
+  static const profile = 'assets/images/hjördis.png';
 
   static const categories = _Categories();
 }
